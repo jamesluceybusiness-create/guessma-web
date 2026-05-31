@@ -1,16 +1,23 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '../lib/supabase'
 
 export default function SignupPage() {
-  const [email, setEmail]               = useState('')
-  const [password, setPassword]         = useState('')
-  const [username, setUsername]         = useState('')
-  const [displayName, setDisplayName]   = useState('')
-  const [error, setError]               = useState(null)
-  const [loading, setLoading]           = useState(false)
-  const [done, setDone]                 = useState(false)
+  const [email, setEmail]             = useState('')
+  const [password, setPassword]       = useState('')
+  const [username, setUsername]       = useState('')
+  const [displayName, setDisplayName] = useState('')
+  const [error, setError]             = useState(null)
+  const [loading, setLoading]         = useState(false)
+  const [bonusParam, setBonusParam]   = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get('bonus') === 'unlocked') setBonusParam(true)
+  }, [])
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -38,30 +45,20 @@ export default function SignupPage() {
     if (authError) {
       setError(authError.message)
     } else {
-      setDone(true)
+      router.push(bonusParam ? '/?welcome=true&bonus=unlocked' : '/?welcome=true')
     }
-  }
-
-  if (done) {
-    return (
-      <div style={styles.page}>
-        <div style={styles.card}>
-          <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>📬</div>
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.5rem' }}>Check your email</h2>
-          <p style={{ color: '#888', fontSize: '0.9rem', lineHeight: 1.6 }}>
-            We sent a confirmation link to <strong style={{ color: '#f0f0f0' }}>{email}</strong>.
-            Click it to activate your account, then head back to sign in.
-          </p>
-          <Link href="/login" style={styles.linkBtn}>Go to Sign In →</Link>
-        </div>
-      </div>
-    )
   }
 
   return (
     <div style={styles.page}>
       <div style={styles.card}>
         <Link href="/" style={styles.backLink}>← Back</Link>
+
+        {bonusParam && (
+          <div style={styles.bonusBanner}>
+            🎮 Complete signup to claim your free game!
+          </div>
+        )}
 
         <h1 style={{ fontSize: '1.6rem', fontWeight: 900, marginBottom: '0.25rem' }}>Create account</h1>
         <p style={{ color: '#555', fontSize: '0.85rem', marginBottom: '1.75rem' }}>Join GUESSMA and track your stats</p>
@@ -165,6 +162,17 @@ const styles = {
     marginBottom: '1.5rem',
     fontWeight: 600,
   },
+  bonusBanner: {
+    background: '#052e16',
+    border: '1px solid #166534',
+    borderRadius: '0.6rem',
+    padding: '0.75rem 1rem',
+    color: '#4ade80',
+    fontSize: '0.9rem',
+    fontWeight: 700,
+    marginBottom: '1.25rem',
+    textAlign: 'center',
+  },
   errorBox: {
     background: '#2a0f0f',
     border: '1px solid #5a1a1a',
@@ -205,16 +213,5 @@ const styles = {
     border: 'none',
     cursor: 'pointer',
     letterSpacing: '0.04em',
-  },
-  linkBtn: {
-    display: 'inline-block',
-    marginTop: '1.5rem',
-    padding: '0.65rem 1.25rem',
-    borderRadius: '0.6rem',
-    background: '#f5c842',
-    color: '#000',
-    fontWeight: 800,
-    fontSize: '0.85rem',
-    textDecoration: 'none',
   },
 }

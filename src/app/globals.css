@@ -2,10 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: #0d2d3d;
+  --bg-card: #0a1f2e;
+  --blue-primary: #29afd4;
+  --blue-secondary: #1a6b8a;
+  --green: #22c55e;
+  --text: #ffffff;
+  --muted: #7db8cc;
+}
+
 html, body {
-  background: #0a0a0f;
-  color: #f0f0f0;
-  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
   margin: 0;
   padding: 0;
 }
