@@ -19,7 +19,7 @@ const INPUT: React.CSSProperties = {
   borderRadius: 8,
   padding: '0.65rem 0.85rem',
   color: '#c8d8c8',
-  fontFamily: 'Lexend, sans-serif',
+  fontFamily: 'Poppins, sans-serif',
   fontSize: '1.1rem',
   width: '100%',
   letterSpacing: '0.15em',
@@ -122,7 +122,7 @@ export default function SetupMfaPage() {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontFamily: 'Lexend, sans-serif',
+    fontFamily: 'Poppins, sans-serif',
     padding: '2rem 1rem',
   }
 
@@ -148,7 +148,7 @@ export default function SetupMfaPage() {
           </div>
           <button
             onClick={() => router.push('/profile')}
-            style={{ width: '100%', background: '#14532d', border: '1px solid #22c55e', borderRadius: 8, padding: '0.65rem', color: '#22c55e', cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.85rem', fontWeight: 700 }}
+            style={{ width: '100%', background: '#14532d', border: '1px solid #22c55e', borderRadius: 8, padding: '0.65rem', color: '#22c55e', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.85rem', fontWeight: 700 }}
           >
             Return to Profile
           </button>
@@ -172,7 +172,7 @@ export default function SetupMfaPage() {
           </div>
           <button
             onClick={() => router.push('/admin')}
-            style={{ width: '100%', background: '#22c55e', border: 'none', borderRadius: 8, padding: '0.65rem', color: '#000', cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.9rem', fontWeight: 900 }}
+            style={{ width: '100%', background: '#22c55e', border: 'none', borderRadius: 8, padding: '0.65rem', color: '#000', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.9rem', fontWeight: 900 }}
           >
             Go to Admin →
           </button>
@@ -216,7 +216,7 @@ export default function SetupMfaPage() {
               </code>
               <button
                 onClick={copySecret}
-                style={{ flexShrink: 0, background: copied ? '#14532d' : '#1a2e1a', border: `1px solid ${copied ? '#22c55e' : '#1a2e1a'}`, borderRadius: 6, padding: '0.4rem 0.65rem', color: copied ? '#22c55e' : '#9ab89a', cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.72rem', fontWeight: 700, transition: 'all 0.15s' }}
+                style={{ flexShrink: 0, background: copied ? '#14532d' : '#1a2e1a', border: `1px solid ${copied ? '#22c55e' : '#1a2e1a'}`, borderRadius: 6, padding: '0.4rem 0.65rem', color: copied ? '#22c55e' : '#9ab89a', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.72rem', fontWeight: 700, transition: 'all 0.15s' }}
               >
                 {copied ? 'Copied!' : 'Copy'}
               </button>
@@ -256,7 +256,7 @@ export default function SetupMfaPage() {
               padding: '0.65rem',
               color: code.length === 6 ? '#000' : '#52525b',
               cursor: verifying || code.length !== 6 ? 'not-allowed' : 'pointer',
-              fontFamily: 'Lexend, sans-serif',
+              fontFamily: 'Poppins, sans-serif',
               fontSize: '0.9rem',
               fontWeight: 900,
               transition: 'background 0.15s',

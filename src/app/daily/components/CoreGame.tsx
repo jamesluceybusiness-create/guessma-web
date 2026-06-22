@@ -259,7 +259,7 @@ export default function CoreGame({ gs, update }: Props) {
     })
   }
 
-  const timerColor = timer > 20 ? '#22c55e' : timer > 10 ? '#eab308' : '#ef4444'
+  const timerColor = timer > 20 ? '#16a34a' : timer > 10 ? '#facc15' : '#ef4444'
 
   const totalRemaining = primaryQueue.length + skipQueue.length
   const skipDimmed = showBonus || totalRemaining <= 1
@@ -269,7 +269,7 @@ export default function CoreGame({ gs, update }: Props) {
       <Nav />
       <div style={{
         height: '100vh', overflow: 'hidden',
-        background: '#0a0f0a', color: 'white',
+        background: '#091e2a', color: 'white',
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         padding: 'calc(64px + 1vh) 2vw 1vh',
       }}>
@@ -281,16 +281,16 @@ export default function CoreGame({ gs, update }: Props) {
               <p style={{ fontSize: '1.1rem', fontWeight: 900, lineHeight: 1.1, margin: '0 0 0.2rem' }}>
                 {categoryLabel}
               </p>
-              <p style={{ fontSize: '0.75rem', color: '#4a7a4a', fontStyle: 'italic', margin: '0 0 0.35rem' }}>
+              <p style={{ fontSize: '0.75rem', color: '#94a3b8', fontStyle: 'italic', margin: '0 0 0.35rem' }}>
                 {difficultyLabel} · Daily Game
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-                <span style={{ fontSize: '0.7rem', color: '#f59e0b', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>HINTER</span>
-                <span style={{ padding: '0.18rem 0.75rem', fontSize: '0.82rem', fontWeight: 700, borderRadius: '999px', background: '#92400e', color: '#fde68a' }}>
+                <span style={{ fontSize: '0.7rem', color: '#29afd4', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>HINTER</span>
+                <span style={{ padding: '0.18rem 0.75rem', fontSize: '0.82rem', fontWeight: 700, borderRadius: '999px', background: '#0f3547', color: '#29afd4', border: '1px solid #29afd4' }}>
                   {hinterName}
                 </span>
-                <span style={{ fontSize: '0.7rem', color: '#52525b', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>GUESSER</span>
-                <span style={{ padding: '0.18rem 0.75rem', fontSize: '0.82rem', fontWeight: 700, borderRadius: '999px', background: '#3f3f46', color: 'white' }}>
+                <span style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>GUESSER</span>
+                <span style={{ padding: '0.18rem 0.75rem', fontSize: '0.82rem', fontWeight: 700, borderRadius: '999px', background: '#0d2d3d', color: '#94a3b8', border: '1px solid #1a4a5a' }}>
                   {guesserName}
                 </span>
               </div>
@@ -308,7 +308,7 @@ export default function CoreGame({ gs, update }: Props) {
 
           {/* Prompt card */}
           <div style={{
-            background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: '16px',
+            background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '16px',
             padding: '3vh 2vw', flex: 1, minHeight: 0,
             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
             textAlign: 'center',
@@ -316,19 +316,19 @@ export default function CoreGame({ gs, update }: Props) {
             {activePrompt ? (
               <>
                 {showBonus && (
-                  <p style={{ fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.12em', color: '#eab308', textTransform: 'uppercase', margin: '0 0 1rem' }}>
+                  <p style={{ fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.12em', color: '#facc15', textTransform: 'uppercase', margin: '0 0 1rem' }}>
                     BONUS · {bonusPts} pts
                   </p>
                 )}
                 <p style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', fontWeight: 900, color: 'white', lineHeight: 1.1, margin: 0, textTransform: 'uppercase' }}>
                   {activePrompt.payload.text}
                 </p>
-                <p style={{ fontSize: '0.75rem', color: '#52525b', marginTop: '1rem', marginBottom: 0 }}>
+                <p style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '1rem', marginBottom: 0 }}>
                   {showBonus ? `Bonus · ${bonusPts} pts` : `${pts} pts`}
                 </p>
               </>
             ) : (
-              <p style={{ fontSize: '1.5rem', fontWeight: 900, color: '#52525b', margin: 0 }}>Waiting…</p>
+              <p style={{ fontSize: '1.5rem', fontWeight: 900, color: '#64748b', margin: 0 }}>Waiting…</p>
             )}
           </div>
 
@@ -339,13 +339,13 @@ export default function CoreGame({ gs, update }: Props) {
               const state = dotStates[i]
               const isCurrent = i === (showBonus ? 5 : activeIdx)
               const color =
-                state === 'green' ? '#22c55e' :
+                state === 'green' ? '#16a34a' :
                 state === 'red' ? '#ef4444' :
-                state === 'yellow' ? '#eab308' :
-                state === 'blue' ? '#3b82f6' :
-                state === 'gray' ? '#52525b' :
-                isCurrent ? '#3b82f6' :
-                '#3f3f46'
+                state === 'yellow' ? '#facc15' :
+                state === 'blue' ? '#29afd4' :
+                state === 'gray' ? '#1a4a5a' :
+                isCurrent ? '#29afd4' :
+                '#0f3547'
               return (
                 <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.15rem' }}>
                   <span style={{ fontSize: '0.6rem', opacity: isCurrent ? 1 : 0, color: 'white', lineHeight: 1 }}>▼</span>
@@ -380,9 +380,9 @@ export default function CoreGame({ gs, update }: Props) {
                 onClick={() => advanceQueue('incorrect')}
                 style={{
                   height: 'clamp(4rem, 8vh, 6rem)', borderRadius: '12px', border: 'none',
-                  background: 'rgba(239,68,68,0.18)', color: '#f87171',
+                  background: 'rgba(239,68,68,0.18)', color: '#ef4444',
                   fontWeight: 800, fontSize: 'clamp(1rem, 2.5vh, 1.3rem)', cursor: 'pointer',
-                  fontFamily: 'Lexend, sans-serif', textTransform: 'uppercase', letterSpacing: '0.06em',
+                  fontFamily: 'Poppins, sans-serif', textTransform: 'uppercase', letterSpacing: '0.06em',
                 }}
               >
                 ✗ Wrong
@@ -393,11 +393,11 @@ export default function CoreGame({ gs, update }: Props) {
                   disabled={skipDimmed}
                   style={{
                     height: 'clamp(4rem, 8vh, 6rem)', borderRadius: '12px', border: 'none',
-                    background: 'rgba(234,179,8,0.15)', color: '#fde68a',
+                    background: 'rgba(234,179,8,0.15)', color: '#facc15',
                     fontWeight: 800, fontSize: 'clamp(1rem, 2.5vh, 1.3rem)',
                     cursor: skipDimmed ? 'not-allowed' : 'pointer',
                     pointerEvents: skipDimmed ? 'none' : 'auto',
-                    fontFamily: 'Lexend, sans-serif', textTransform: 'uppercase', letterSpacing: '0.06em',
+                    fontFamily: 'Poppins, sans-serif', textTransform: 'uppercase', letterSpacing: '0.06em',
                     opacity: skipDimmed ? 0.35 : 1,
                   }}
                 >
@@ -410,7 +410,7 @@ export default function CoreGame({ gs, update }: Props) {
                   height: 'clamp(4rem, 8vh, 6rem)', borderRadius: '12px', border: 'none',
                   background: '#16a34a', color: 'white',
                   fontWeight: 800, fontSize: '1.3rem', cursor: 'pointer',
-                  fontFamily: 'Lexend, sans-serif', textTransform: 'uppercase', letterSpacing: '0.06em',
+                  fontFamily: 'Poppins, sans-serif', textTransform: 'uppercase', letterSpacing: '0.06em',
                 }}
               >
                 ✓ Correct
@@ -422,9 +422,9 @@ export default function CoreGame({ gs, update }: Props) {
             <button
               onClick={handleSeeResults}
               style={{
-                width: '100%', height: 'clamp(3.5rem, 9vh, 6rem)', background: '#15803d', color: 'white',
+                width: '100%', height: 'clamp(3.5rem, 9vh, 6rem)', background: '#16a34a', color: 'white',
                 border: 'none', borderRadius: '12px', fontWeight: 900, fontSize: '1.1rem',
-                cursor: 'pointer', fontFamily: 'Lexend, sans-serif', textTransform: 'uppercase', letterSpacing: '0.06em',
+                cursor: 'pointer', fontFamily: 'Poppins, sans-serif', textTransform: 'uppercase', letterSpacing: '0.06em',
               }}
             >
               See Results →

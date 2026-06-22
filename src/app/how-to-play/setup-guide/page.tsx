@@ -13,14 +13,14 @@ export default function SetupGuide() {
         <p style={s.p}>This setup mirrors the format of classic TV gameshows like the $10,000 Pyramid — one player in the hot seat, one player giving clues, and an audience watching it all unfold.</p>
 
         <div style={{
-          background: '#1a2e1a',
-          border: '1px dashed #2a4a2a',
+          background: '#0f3547',
+          border: '1px dashed #1a4a5a',
           borderRadius: '12px',
           height: '280px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#4a7a4a',
+          color: '#94a3b8',
           fontSize: '0.9rem',
           margin: '1.5rem 0',
         }}>
@@ -32,7 +32,7 @@ export default function SetupGuide() {
         <h2 style={s.h2}>Playing on a TV</h2>
         <p style={s.p}>For the best experience, cast or connect your laptop to a TV or large monitor. This makes the prompts easier to read from across the room and adds to the gameshow atmosphere.</p>
         <p style={s.p}>See our connection guide for step-by-step instructions on how to connect your device.</p>
-        <Link href="/connect" style={{ color: '#22c55e', textDecoration: 'underline', fontWeight: 600 }}>
+        <Link href="/connect" style={{ color: '#29afd4', textDecoration: 'underline', fontWeight: 600 }}>
           → How to connect your device
         </Link>
       </section>

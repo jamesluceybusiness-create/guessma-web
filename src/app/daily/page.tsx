@@ -96,8 +96,8 @@ export default function DailyPage() {
 
   if (phase === 'loading') {
     return (
-      <div style={{ width: '100vw', height: '100vh', background: '#09090b', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ color: '#52525b', fontSize: '0.9rem' }}>Loading today&apos;s game…</div>
+      <div style={{ width: '100vw', height: '100vh', background: '#091e2a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ color: '#64748b', fontSize: '0.9rem' }}>Loading today&apos;s game…</div>
       </div>
     )
   }

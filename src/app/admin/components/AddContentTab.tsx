@@ -29,9 +29,9 @@ interface Props {
   showToast: (msg: string, ok?: boolean) => void
 }
 
-const CARD: React.CSSProperties = { background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: 12, padding: '1.5rem', flex: 1, minWidth: 0 }
-const INPUT: React.CSSProperties = { background: '#152815', border: '1px solid #1a2e1a', borderRadius: 6, padding: '0.4rem 0.6rem', color: '#c8d8c8', fontFamily: 'Lexend, sans-serif', fontSize: '0.82rem', width: '100%' }
-const LABEL_STYLE: React.CSSProperties = { fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#4a7a4a', textTransform: 'uppercase', marginBottom: '0.3rem', display: 'block' }
+const CARD: React.CSSProperties = { background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: 12, padding: '1.5rem', flex: 1, minWidth: 0 }
+const INPUT: React.CSSProperties = { background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: 6, padding: '0.4rem 0.6rem', color: '#c8d8c8', fontFamily: 'Poppins, sans-serif', fontSize: '0.82rem', width: '100%' }
+const LABEL_STYLE: React.CSSProperties = { fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#29afd4', textTransform: 'uppercase', marginBottom: '0.3rem', display: 'block' }
 
 function genId(cat: string, diff: number) {
   const prefix = CAT_PREFIX[cat] ?? 'unk'
@@ -143,7 +143,7 @@ export default function AddContentTab({ supabase, showToast }: Props) {
     <div style={{ flex: 1, overflow: 'auto', padding: '2rem', display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
       {/* LEFT — Single prompt */}
       <div style={CARD}>
-        <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', color: '#22c55e', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Add Prompt</div>
+        <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', color: '#29afd4', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Add Prompt</div>
         <form onSubmit={addPrompt} style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
           <label>
             <span style={LABEL_STYLE}>Prompt Text *</span>
@@ -181,48 +181,48 @@ export default function AddContentTab({ supabase, showToast }: Props) {
             <span style={LABEL_STYLE}>Notes (optional)</span>
             <textarea value={notes} onChange={e => setNotes(e.target.value)} rows={2} style={{ ...INPUT, resize: 'vertical' }} />
           </label>
-          <button type="submit" disabled={adding} style={{ background: '#22c55e', border: 'none', borderRadius: 8, padding: '0.55rem 1.2rem', color: '#000', cursor: adding ? 'not-allowed' : 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.85rem', fontWeight: 900, opacity: adding ? 0.6 : 1, alignSelf: 'flex-start' }}>
+          <button type="submit" disabled={adding} style={{ background: '#16a34a', border: 'none', borderRadius: 8, padding: '0.55rem 1.2rem', color: '#000', cursor: adding ? 'not-allowed' : 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.85rem', fontWeight: 900, opacity: adding ? 0.6 : 1, alignSelf: 'flex-start' }}>
             {adding ? 'Adding…' : 'Add Prompt'}
           </button>
-          {lastAdded && <div style={{ fontSize: '0.78rem', color: '#22c55e' }}>✓ Added: {lastAdded}</div>}
+          {lastAdded && <div style={{ fontSize: '0.78rem', color: '#29afd4' }}>✓ Added: {lastAdded}</div>}
         </form>
       </div>
 
       {/* RIGHT — CSV Bulk Import */}
       <div style={CARD}>
-        <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', color: '#22c55e', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Bulk Import</div>
-        <p style={{ fontSize: '0.78rem', color: '#52525b', marginBottom: '1rem', lineHeight: 1.5 }}>
+        <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', color: '#29afd4', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Bulk Import</div>
+        <p style={{ fontSize: '0.78rem', color: '#64748b', marginBottom: '1rem', lineHeight: 1.5 }}>
           Upload a CSV with columns: <code style={{ color: '#c8d8c8' }}>text, category_id, difficulty, is_daily_eligible, forbidden_words</code>
         </p>
         <input type="file" accept=".csv" onChange={onCsvFile} style={{ marginBottom: '1rem', fontSize: '0.8rem', color: '#c8d8c8' }} />
 
         {csvRows.length > 0 && !importResult && (
           <>
-            <div style={{ fontSize: '0.72rem', color: '#52525b', marginBottom: '0.5rem' }}>Preview (first 10 of {csvRows.length} rows):</div>
-            <div style={{ background: '#0a0f0a', border: '1px solid #1a2e1a', borderRadius: 8, overflow: 'hidden', marginBottom: '1rem' }}>
+            <div style={{ fontSize: '0.72rem', color: '#64748b', marginBottom: '0.5rem' }}>Preview (first 10 of {csvRows.length} rows):</div>
+            <div style={{ background: '#091e2a', border: '1px solid #1a4a5a', borderRadius: 8, overflow: 'hidden', marginBottom: '1rem' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem' }}>
                 <thead>
-                  <tr style={{ background: '#0d1710' }}>
+                  <tr style={{ background: '#0f3547' }}>
                     {['Text', 'Category', 'Diff', 'Eligible', 'Status'].map(h => (
-                      <th key={h} style={{ padding: '0.35rem 0.5rem', textAlign: 'left', color: '#4a7a4a', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: '0.62rem' }}>{h}</th>
+                      <th key={h} style={{ padding: '0.35rem 0.5rem', textAlign: 'left', color: '#29afd4', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: '0.62rem' }}>{h}</th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
                   {csvRows.slice(0, 10).map((row, i) => (
                     <tr key={i}>
-                      <td style={{ padding: '0.3rem 0.5rem', color: '#c8d8c8', borderTop: '1px solid #1a2e1a', maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{row.text}</td>
-                      <td style={{ padding: '0.3rem 0.5rem', color: '#52525b', borderTop: '1px solid #1a2e1a' }}>{row.category_id}</td>
-                      <td style={{ padding: '0.3rem 0.5rem', color: '#52525b', borderTop: '1px solid #1a2e1a' }}>{row.difficulty}</td>
-                      <td style={{ padding: '0.3rem 0.5rem', color: row.is_daily_eligible ? '#22c55e' : '#52525b', borderTop: '1px solid #1a2e1a' }}>{row.is_daily_eligible ? '✓' : '—'}</td>
-                      <td style={{ padding: '0.3rem 0.5rem', borderTop: '1px solid #1a2e1a', color: row._error ? '#ef4444' : '#22c55e' }}>{row._error ?? 'OK'}</td>
+                      <td style={{ padding: '0.3rem 0.5rem', color: '#c8d8c8', borderTop: '1px solid #1a4a5a', maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{row.text}</td>
+                      <td style={{ padding: '0.3rem 0.5rem', color: '#64748b', borderTop: '1px solid #1a4a5a' }}>{row.category_id}</td>
+                      <td style={{ padding: '0.3rem 0.5rem', color: '#64748b', borderTop: '1px solid #1a4a5a' }}>{row.difficulty}</td>
+                      <td style={{ padding: '0.3rem 0.5rem', color: row.is_daily_eligible ? '#29afd4' : '#64748b', borderTop: '1px solid #1a4a5a' }}>{row.is_daily_eligible ? '✓' : '—'}</td>
+                      <td style={{ padding: '0.3rem 0.5rem', borderTop: '1px solid #1a4a5a', color: row._error ? '#ef4444' : '#29afd4' }}>{row._error ?? 'OK'}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
             {!importing && (
-              <button onClick={runImport} style={{ background: '#22c55e', border: 'none', borderRadius: 8, padding: '0.5rem 1.2rem', color: '#000', cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.85rem', fontWeight: 900 }}>
+              <button onClick={runImport} style={{ background: '#16a34a', border: 'none', borderRadius: 8, padding: '0.5rem 1.2rem', color: '#000', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.85rem', fontWeight: 900 }}>
                 Import {csvRows.length} prompts
               </button>
             )}
@@ -230,12 +230,12 @@ export default function AddContentTab({ supabase, showToast }: Props) {
         )}
 
         {importing && importProgress && (
-          <div style={{ fontSize: '0.82rem', color: '#22c55e' }}>Importing… {importProgress.done} of {importProgress.total}</div>
+          <div style={{ fontSize: '0.82rem', color: '#29afd4' }}>Importing… {importProgress.done} of {importProgress.total}</div>
         )}
 
         {importResult && (
           <div>
-            <div style={{ fontSize: '0.85rem', color: importResult.failed.length === 0 ? '#22c55e' : '#eab308', fontWeight: 700, marginBottom: '0.5rem' }}>
+            <div style={{ fontSize: '0.85rem', color: importResult.failed.length === 0 ? '#29afd4' : '#facc15', fontWeight: 700, marginBottom: '0.5rem' }}>
               ✓ {importResult.ok} imported, {importResult.failed.length} failed
             </div>
             {importResult.failed.length > 0 && (

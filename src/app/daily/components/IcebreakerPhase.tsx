@@ -50,19 +50,19 @@ export default function IcebreakerPhase({ gs, update }: Props) {
     update({ phase: 'icebreakerResults' })
   }
 
-  const timerColor = timer > 4 ? '#22c55e' : timer > 2 ? '#eab308' : '#ef4444'
+  const timerColor = timer > 4 ? '#16a34a' : timer > 2 ? '#facc15' : '#ef4444'
 
   return (
-    <div style={{ height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', background: '#0a0f0a', color: 'white' }}>
+    <div style={{ height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', background: '#091e2a', color: 'white' }}>
       <Nav />
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1vh 2vw', paddingTop: 'calc(64px + 1vh)' }}>
         <div style={{
-          background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: '16px',
+          background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '16px',
           padding: 'clamp(1.5rem, 2.5vh, 2rem)', width: '100%', maxWidth: 'min(900px, 92vw)',
           maxHeight: 'calc(100vh - 64px - 4vh)',
           display: 'flex', flexDirection: 'column', gap: '2vh',
         }}>
-          <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#22c55e', textTransform: 'uppercase', margin: 0, flexShrink: 0 }}>
+          <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#29afd4', textTransform: 'uppercase', margin: 0, flexShrink: 0 }}>
             Icebreaker
           </p>
 
@@ -71,7 +71,7 @@ export default function IcebreakerPhase({ gs, update }: Props) {
               <p style={{ fontSize: 'clamp(1.8rem, 4vh, 2.5rem)', fontWeight: 700, color: 'white', marginBottom: '0.5rem', marginTop: 0 }}>
                 Ready?
               </p>
-              <p style={{ color: '#4a7a4a', fontSize: 'clamp(0.9rem, 2vh, 1.1rem)', marginBottom: '2rem', marginTop: 0 }}>
+              <p style={{ color: '#94a3b8', fontSize: 'clamp(0.9rem, 2vh, 1.1rem)', marginBottom: '2rem', marginTop: 0 }}>
                 Both players look at the screen together
               </p>
               <button
@@ -79,7 +79,7 @@ export default function IcebreakerPhase({ gs, update }: Props) {
                 style={{
                   height: 'clamp(3rem, 7vh, 5rem)', padding: '0 3rem', background: '#16a34a', color: 'white',
                   border: 'none', borderRadius: '12px', fontWeight: 800, fontSize: 'clamp(1rem, 2vh, 1.2rem)',
-                  cursor: 'pointer', fontFamily: 'Lexend, sans-serif', textTransform: 'uppercase',
+                  cursor: 'pointer', fontFamily: 'Poppins, sans-serif', textTransform: 'uppercase',
                   letterSpacing: '0.06em',
                 }}
               >
@@ -120,9 +120,9 @@ export default function IcebreakerPhase({ gs, update }: Props) {
                 <button
                   onClick={handleEndRound}
                   style={{
-                    flex: 1, height: 'clamp(3rem, 7vh, 5rem)', background: '#3f3f46', color: 'white',
+                    flex: 1, height: 'clamp(3rem, 7vh, 5rem)', background: '#1a4a5a', color: 'white',
                     border: 'none', borderRadius: '10px', fontWeight: 800, fontSize: 'clamp(1rem, 2vh, 1.2rem)',
-                    cursor: 'pointer', fontFamily: 'Lexend, sans-serif', textTransform: 'uppercase',
+                    cursor: 'pointer', fontFamily: 'Poppins, sans-serif', textTransform: 'uppercase',
                     letterSpacing: '0.06em',
                   }}
                 >

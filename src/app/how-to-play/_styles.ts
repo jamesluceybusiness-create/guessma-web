@@ -1,9 +1,9 @@
 import type { CSSProperties } from 'react'
 
 export const tag: CSSProperties = {
-  background: '#1a3a1a',
-  color: '#22c55e',
-  border: '1px solid #166534',
+  background: '#0f3547',
+  color: '#29afd4',
+  border: '1px solid #1a4a5a',
   borderRadius: '999px',
   padding: '0.2rem 0.75rem',
   fontSize: '0.75rem',
@@ -43,13 +43,13 @@ export const p: CSSProperties = {
   fontFamily: 'Georgia, serif',
   fontSize: '1rem',
   lineHeight: 1.8,
-  color: '#c8d8c8',
+  color: '#94a3b8',
   margin: '0 0 1rem 0',
 }
 
 export const hr: CSSProperties = {
   border: 'none',
-  borderBottom: '1px solid #1a2e1a',
+  borderBottom: '1px solid #1a4a5a',
   margin: '2rem 0',
 }
 
@@ -64,8 +64,8 @@ export const tbl = {
     marginTop: '0.75rem',
   } as CSSProperties,
   th: {
-    background: '#1a2e1a',
-    color: '#22c55e',
+    background: '#0f3547',
+    color: '#29afd4',
     padding: '0.6rem 1rem',
     textAlign: 'left' as const,
     fontSize: '0.85rem',
@@ -73,8 +73,8 @@ export const tbl = {
   } as CSSProperties,
   td: {
     padding: '0.6rem 1rem',
-    borderBottom: '1px solid #1a2e1a',
-    color: '#c8d8c8',
+    borderBottom: '1px solid #1a4a5a',
+    color: '#94a3b8',
     fontSize: '0.9rem',
   } as CSSProperties,
 }

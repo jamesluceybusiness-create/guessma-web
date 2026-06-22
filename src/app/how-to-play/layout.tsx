@@ -52,7 +52,7 @@ export default function HowToPlayLayout({ children }: { children: React.ReactNod
             textTransform: 'uppercase',
             letterSpacing: '0.1em',
             fontSize: '0.65rem',
-            color: '#4a7a4a',
+            color: '#29afd4',
             fontWeight: 700,
             padding: '1rem 1.25rem 0.4rem',
             margin: 0,
@@ -72,11 +72,11 @@ export default function HowToPlayLayout({ children }: { children: React.ReactNod
                   padding: '0.45rem 1.25rem',
                   paddingLeft: isActive ? 'calc(1.25rem - 3px)' : '1.25rem',
                   fontSize: '0.875rem',
-                  color: isActive ? 'white' : '#9ab89a',
+                  color: isActive ? '#ffffff' : '#94a3b8',
                   fontWeight: 500,
                   textDecoration: 'none',
-                  background: isActive ? '#1a3a1a' : 'transparent',
-                  borderLeft: isActive ? '3px solid #22c55e' : '3px solid transparent',
+                  background: isActive ? '#0f3547' : 'transparent',
+                  borderLeft: isActive ? '3px solid #29afd4' : '3px solid transparent',
                   transition: 'color 0.1s, background 0.1s',
                 }}
               >
@@ -95,8 +95,8 @@ export default function HowToPlayLayout({ children }: { children: React.ReactNod
 
       <style>{`
         .htp-nav-link:hover {
-          color: white !important;
-          background: #152815 !important;
+          color: #ffffff !important;
+          background: #0f3547 !important;
         }
         .htp-mobile-bar {
           display: none !important;
@@ -144,7 +144,7 @@ export default function HowToPlayLayout({ children }: { children: React.ReactNod
         height: 'calc(100vh - 64px)',
         display: 'flex',
         flexDirection: 'column',
-        background: '#0a0f0a',
+        background: '#091e2a',
       }}>
         {/* Mobile toggle bar */}
         <div
@@ -154,16 +154,16 @@ export default function HowToPlayLayout({ children }: { children: React.ReactNod
             alignItems: 'center',
             gap: '0.75rem',
             padding: '0.6rem 1.25rem',
-            background: '#0d1710',
-            borderBottom: '1px solid #1a2e1a',
+            background: '#0d2d3d',
+            borderBottom: '1px solid #1a4a5a',
           }}
         >
           <button
             onClick={() => setMobileOpen(v => !v)}
             style={{
               background: 'none',
-              border: '1px solid #1a2e1a',
-              color: '#9ab89a',
+              border: '1px solid #1a4a5a',
+              color: '#94a3b8',
               borderRadius: '0.4rem',
               padding: '0.35rem 0.75rem',
               fontSize: '0.875rem',
@@ -185,8 +185,8 @@ export default function HowToPlayLayout({ children }: { children: React.ReactNod
             style={{
               width: '260px',
               flexShrink: 0,
-              background: '#0d1710',
-              borderRight: '1px solid #1a2e1a',
+              background: '#0d2d3d',
+              borderRight: '1px solid #1a4a5a',
               overflowY: 'auto',
             }}
           >
@@ -194,7 +194,7 @@ export default function HowToPlayLayout({ children }: { children: React.ReactNod
           </aside>
 
           {/* Content area */}
-          <main style={{ flex: 1, overflowY: 'auto', background: '#0a0f0a' }}>
+          <main style={{ flex: 1, overflowY: 'auto', background: '#091e2a' }}>
             <div style={{ padding: '3rem', maxWidth: '760px' }}>
               {children}
             </div>

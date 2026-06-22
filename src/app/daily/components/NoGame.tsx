@@ -8,12 +8,12 @@ export default function NoGame() {
     <>
       <Nav />
       <div style={{
-        minHeight: '100vh', background: '#0a0f0a',
+        minHeight: '100vh', background: '#091e2a',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         padding: '80px 1.5rem 2rem',
       }}>
         <div style={{
-          background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: '16px',
+          background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '16px',
           padding: '3rem 2.5rem', maxWidth: '420px', width: '100%', textAlign: 'center',
           display: 'flex', flexDirection: 'column', gap: '1rem',
         }}>
@@ -21,7 +21,7 @@ export default function NoGame() {
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white', margin: 0 }}>
             No game today
           </h1>
-          <p style={{ color: '#4a7a4a', fontSize: '0.9rem', margin: 0 }}>
+          <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: 0 }}>
             Check back tomorrow — games reset at midnight UTC.
           </p>
           <Link

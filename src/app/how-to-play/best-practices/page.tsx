@@ -42,7 +42,7 @@ export default function BestPractices() {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         {TIPS.map(tip => (
           <div key={tip.label} style={{ display: 'flex', gap: '0.75rem' }}>
-            <span style={{ color: '#22c55e', fontWeight: 900, fontSize: '1.1rem', flexShrink: 0, lineHeight: 1.8 }}>✓</span>
+            <span style={{ color: '#29afd4', fontWeight: 900, fontSize: '1.1rem', flexShrink: 0, lineHeight: 1.8 }}>✓</span>
             <p style={{ ...s.p, margin: 0 }}>
               <strong style={{ color: 'white', fontFamily: 'inherit' }}>{tip.label}</strong>
               {' '}{tip.body}

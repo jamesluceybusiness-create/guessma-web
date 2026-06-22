@@ -64,18 +64,18 @@ export default function AdminPage() {
 
   if (!authChecked) {
     return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', background: '#0a0f0a' }}>
-        <div style={{ width: 48, height: 48, border: '4px solid #1a2e1a', borderTop: '4px solid #22c55e', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', background: '#091e2a' }}>
+        <div style={{ width: 48, height: 48, border: '4px solid #1a4a5a', borderTop: '4px solid #29afd4', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
         <style>{`@keyframes spin { to { transform: rotate(360deg) } }`}</style>
       </div>
     )
   }
 
   return (
-    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', background: '#0a0f0a', color: '#c8d8c8', fontFamily: 'Lexend, sans-serif', overflow: 'hidden' }}>
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', background: '#091e2a', color: '#c8d8c8', fontFamily: 'Poppins, sans-serif', overflow: 'hidden' }}>
       {/* Top bar */}
-      <div style={{ height: 48, flexShrink: 0, background: '#0d1710', borderBottom: '1px solid #1a2e1a', display: 'flex', alignItems: 'center', paddingInline: '1.5rem', gap: '1.5rem' }}>
-        <span style={{ color: '#22c55e', fontWeight: 900, fontSize: '0.9rem', letterSpacing: '0.08em', whiteSpace: 'nowrap' }}>GUESSMA ADMIN</span>
+      <div style={{ height: 48, flexShrink: 0, background: '#0d2d3d', borderBottom: '1px solid #1a4a5a', display: 'flex', alignItems: 'center', paddingInline: '1.5rem', gap: '1.5rem' }}>
+        <span style={{ color: '#29afd4', fontWeight: 900, fontSize: '0.9rem', letterSpacing: '0.08em', whiteSpace: 'nowrap' }}>GUESSMA ADMIN</span>
 
         {/* Tabs */}
         <div style={{ display: 'flex', gap: '0.25rem', flex: 1, justifyContent: 'center' }}>
@@ -89,10 +89,10 @@ export default function AdminPage() {
                 cursor: 'pointer',
                 padding: '0.25rem 0.9rem',
                 fontSize: '0.8rem',
-                fontFamily: 'Lexend, sans-serif',
+                fontFamily: 'Poppins, sans-serif',
                 fontWeight: 600,
-                color: activeTab === t.id ? '#fff' : '#9ab89a',
-                borderBottom: activeTab === t.id ? '2px solid #22c55e' : '2px solid transparent',
+                color: activeTab === t.id ? '#fff' : '#94a3b8',
+                borderBottom: activeTab === t.id ? '2px solid #29afd4' : '2px solid transparent',
                 transition: 'color 0.15s',
               }}
             >
@@ -103,18 +103,18 @@ export default function AdminPage() {
 
         {/* Right side */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', whiteSpace: 'nowrap' }}>
-          <span style={{ fontSize: '0.72rem', color: '#52525b' }}>{userEmail}</span>
+          <span style={{ fontSize: '0.72rem', color: '#64748b' }}>{userEmail}</span>
           {mfaLevel !== 'aal2' && (
             <a
               href="/account/setup-mfa"
-              style={{ fontSize: '0.72rem', color: '#22c55e', textDecoration: 'none', fontWeight: 700 }}
+              style={{ fontSize: '0.72rem', color: '#29afd4', textDecoration: 'none', fontWeight: 700 }}
             >
               Setup 2FA →
             </a>
           )}
           <button
             onClick={signOut}
-            style={{ background: 'none', border: '1px solid #1a2e1a', borderRadius: 6, padding: '0.2rem 0.6rem', fontSize: '0.72rem', color: '#9ab89a', cursor: 'pointer', fontFamily: 'Lexend, sans-serif' }}
+            style={{ background: 'none', border: '1px solid #1a4a5a', borderRadius: 6, padding: '0.2rem 0.6rem', fontSize: '0.72rem', color: '#94a3b8', cursor: 'pointer', fontFamily: 'Poppins, sans-serif' }}
           >
             Sign out
           </button>
@@ -134,9 +134,9 @@ export default function AdminPage() {
         <div style={{
           position: 'fixed', top: '1rem', right: '1rem', zIndex: 9999,
           background: toast.ok ? '#14532d' : '#7f1d1d',
-          border: `1px solid ${toast.ok ? '#22c55e' : '#ef4444'}`,
+          border: `1px solid ${toast.ok ? '#16a34a' : '#ef4444'}`,
           borderRadius: 8, padding: '0.6rem 1rem',
-          fontSize: '0.82rem', color: '#fff', fontFamily: 'Lexend, sans-serif',
+          fontSize: '0.82rem', color: '#fff', fontFamily: 'Poppins, sans-serif',
           boxShadow: '0 4px 12px rgba(0,0,0,0.4)',
           animation: 'fadeIn 0.15s ease',
         }}>

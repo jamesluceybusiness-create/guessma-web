@@ -87,7 +87,7 @@ export default function Home() {
 
       {/* SECTION 3 — THANKS */}
       <section style={{
-        background: '#0a1628',
+        background: '#091e2a',
         padding: '5rem 2rem',
         display: 'flex', flexDirection: 'column',
         alignItems: 'center',
@@ -95,7 +95,7 @@ export default function Home() {
         <div style={{ maxWidth: '680px', width: '100%' }}>
 
           <h2 style={{
-            fontFamily: 'Lexend, sans-serif',
+            fontFamily: 'Poppins, sans-serif',
             fontWeight: 700,
             color: 'white',
             fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
@@ -106,20 +106,20 @@ export default function Home() {
           </h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <p style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', lineHeight: 1.8, color: '#c8d8e8', margin: 0 }}>
+            <p style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', lineHeight: 1.8, color: '#94a3b8', margin: 0 }}>
               This game would not exist without the Lucey Family. Thank you for your love, your laughter, and your endless support — and thank you for playing every rough prototype without complaint. You believed in this before it was anything.
             </p>
-            <p style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', lineHeight: 1.8, color: '#c8d8e8', margin: 0 }}>
+            <p style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', lineHeight: 1.8, color: '#94a3b8', margin: 0 }}>
               Thank you Mom, for giving GUESSMA its name.
             </p>
-            <p style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', lineHeight: 1.8, color: '#c8d8e8', margin: 0 }}>
+            <p style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', lineHeight: 1.8, color: '#94a3b8', margin: 0 }}>
               And a special thank you to Meer Balaj — a freelance developer who partnered with me early on and helped bring this vision to life. His talent and belief in the project are a big part of why GUESSMA is where it is today.
             </p>
             <a
               href="https://meerbalaj.site/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#22d3c8', textDecoration: 'underline', fontWeight: 600, fontSize: '0.95rem' }}
+              style={{ color: '#29afd4', textDecoration: 'underline', fontWeight: 600, fontSize: '0.95rem' }}
             >
               → Check out Meer&apos;s work
             </a>

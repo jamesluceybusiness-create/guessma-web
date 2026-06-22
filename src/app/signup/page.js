@@ -61,7 +61,7 @@ export default function SignupPage() {
         )}
 
         <h1 style={{ fontSize: '1.6rem', fontWeight: 900, marginBottom: '0.25rem' }}>Create account</h1>
-        <p style={{ color: '#555', fontSize: '0.85rem', marginBottom: '1.75rem' }}>Join GUESSMA and track your stats</p>
+        <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginBottom: '1.75rem' }}>Join GUESSMA and track your stats</p>
 
         {error && (
           <div style={styles.errorBox}>{error}</div>
@@ -94,7 +94,7 @@ export default function SignupPage() {
           </div>
 
           <div style={styles.field}>
-            <label style={styles.label}>Username <span style={{ color: '#555' }}>(max 20 chars, letters/numbers/underscores)</span></label>
+            <label style={styles.label}>Username <span style={{ color: '#94a3b8' }}>(max 20 chars, letters/numbers/underscores)</span></label>
             <input
               type="text"
               required
@@ -107,7 +107,7 @@ export default function SignupPage() {
           </div>
 
           <div style={styles.field}>
-            <label style={styles.label}>Display Name <span style={{ color: '#555' }}>(optional)</span></label>
+            <label style={styles.label}>Display Name <span style={{ color: '#94a3b8' }}>(optional)</span></label>
             <input
               type="text"
               maxLength={40}
@@ -127,9 +127,9 @@ export default function SignupPage() {
           </button>
         </form>
 
-        <p style={{ marginTop: '1.25rem', fontSize: '0.8rem', color: '#444', textAlign: 'center' }}>
+        <p style={{ marginTop: '1.25rem', fontSize: '0.8rem', color: '#94a3b8', textAlign: 'center' }}>
           Already have an account?{' '}
-          <Link href="/login" style={{ color: '#f5c842', fontWeight: 700 }}>Sign in</Link>
+          <Link href="/login" style={{ color: '#29afd4', fontWeight: 700 }}>Sign in</Link>
         </p>
       </div>
     </div>
@@ -139,46 +139,46 @@ export default function SignupPage() {
 const styles = {
   page: {
     minHeight: '100vh',
-    background: '#0a0a0f',
+    background: '#091e2a',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     padding: '2rem 1rem',
   },
   card: {
-    background: '#13131a',
-    border: '1px solid #1f1f1f',
-    borderRadius: '1.25rem',
+    background: '#0d2d3d',
+    border: '1px solid #1a4a5a',
+    borderRadius: 16,
     padding: '2.5rem 2rem',
     width: '100%',
     maxWidth: '420px',
-    color: '#f0f0f0',
+    color: '#ffffff',
   },
   backLink: {
     display: 'inline-block',
     fontSize: '0.8rem',
-    color: '#555',
+    color: '#94a3b8',
     textDecoration: 'none',
     marginBottom: '1.5rem',
     fontWeight: 600,
   },
   bonusBanner: {
-    background: '#052e16',
-    border: '1px solid #166534',
+    background: 'rgba(22,163,74,0.12)',
+    border: '1px solid rgba(22,163,74,0.4)',
     borderRadius: '0.6rem',
     padding: '0.75rem 1rem',
-    color: '#4ade80',
+    color: '#16a34a',
     fontSize: '0.9rem',
     fontWeight: 700,
     marginBottom: '1.25rem',
     textAlign: 'center',
   },
   errorBox: {
-    background: '#2a0f0f',
-    border: '1px solid #5a1a1a',
+    background: 'rgba(239,68,68,0.12)',
+    border: '1px solid rgba(239,68,68,0.4)',
     borderRadius: '0.6rem',
     padding: '0.75rem 1rem',
-    color: '#f87171',
+    color: '#ef4444',
     fontSize: '0.85rem',
     marginBottom: '0.5rem',
   },
@@ -190,14 +190,14 @@ const styles = {
   label: {
     fontSize: '0.75rem',
     fontWeight: 700,
-    color: '#888',
+    color: '#94a3b8',
   },
   input: {
-    background: '#0a0a0f',
-    border: '1px solid #1f1f1f',
+    background: '#091e2a',
+    border: '1px solid #1a4a5a',
     borderRadius: '0.6rem',
     padding: '0.65rem 0.85rem',
-    color: '#f0f0f0',
+    color: '#ffffff',
     fontSize: '0.9rem',
     outline: 'none',
     width: '100%',
@@ -206,9 +206,9 @@ const styles = {
     marginTop: '0.5rem',
     padding: '0.75rem',
     borderRadius: '0.75rem',
-    background: '#f5c842',
-    color: '#000',
-    fontWeight: 900,
+    background: '#29afd4',
+    color: '#091e2a',
+    fontWeight: 800,
     fontSize: '0.95rem',
     border: 'none',
     cursor: 'pointer',

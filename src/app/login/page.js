@@ -30,26 +30,26 @@ export default function LoginPage() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#0a0a0f',
+      background: '#091e2a',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       padding: '2rem 1rem',
     }}>
       <div style={{
-        background: '#13131a',
-        border: '1px solid rgba(255,255,255,0.08)',
-        borderRadius: '16px',
+        background: '#0d2d3d',
+        border: '1px solid #1a4a5a',
+        borderRadius: 16,
         padding: '2.5rem 2rem',
         width: '100%',
         maxWidth: '440px',
-        color: '#f0f0f0',
+        color: '#ffffff',
       }}>
 
         <Link href="/" style={{
           display: 'inline-block',
           fontSize: '0.8rem',
-          color: '#555',
+          color: '#94a3b8',
           textDecoration: 'none',
           marginBottom: '1.75rem',
           fontWeight: 600,
@@ -58,15 +58,15 @@ export default function LoginPage() {
         </Link>
 
         <h1 style={{ fontSize: '1.75rem', fontWeight: 900, margin: '0 0 0.25rem' }}>Sign in</h1>
-        <p style={{ color: '#555', fontSize: '0.85rem', margin: '0 0 1.75rem' }}>Welcome back to GUESSMA</p>
+        <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '0 0 1.75rem' }}>Welcome back to GUESSMA</p>
 
         {error && (
           <div style={{
-            background: 'rgba(224,85,85,0.12)',
-            border: '1px solid rgba(224,85,85,0.3)',
+            background: 'rgba(239,68,68,0.12)',
+            border: '1px solid rgba(239,68,68,0.4)',
             borderRadius: '8px',
             padding: '0.75rem 1rem',
-            color: '#e05555',
+            color: '#ef4444',
             fontSize: '0.85rem',
             marginBottom: '1rem',
           }}>
@@ -76,7 +76,7 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label style={{ fontSize: '0.75rem', fontWeight: 700, color: '#888' }}>Email</label>
+            <label style={{ fontSize: '0.75rem', fontWeight: 700, color: '#94a3b8' }}>Email</label>
             <input
               type="email"
               required
@@ -84,11 +84,11 @@ export default function LoginPage() {
               onChange={e => setEmail(e.target.value)}
               placeholder="you@example.com"
               style={{
-                background: '#0a0a0f',
-                border: '1px solid rgba(255,255,255,0.08)',
+                background: '#091e2a',
+                border: '1px solid #1a4a5a',
                 borderRadius: '8px',
                 padding: '0.7rem 0.9rem',
-                color: '#f0f0f0',
+                color: '#ffffff',
                 fontSize: '0.9rem',
                 outline: 'none',
                 width: '100%',
@@ -97,7 +97,7 @@ export default function LoginPage() {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label style={{ fontSize: '0.75rem', fontWeight: 700, color: '#888' }}>Password</label>
+            <label style={{ fontSize: '0.75rem', fontWeight: 700, color: '#94a3b8' }}>Password</label>
             <input
               type="password"
               required
@@ -105,11 +105,11 @@ export default function LoginPage() {
               onChange={e => setPassword(e.target.value)}
               placeholder="Your password"
               style={{
-                background: '#0a0a0f',
-                border: '1px solid rgba(255,255,255,0.08)',
+                background: '#091e2a',
+                border: '1px solid #1a4a5a',
                 borderRadius: '8px',
                 padding: '0.7rem 0.9rem',
-                color: '#f0f0f0',
+                color: '#ffffff',
                 fontSize: '0.9rem',
                 outline: 'none',
                 width: '100%',
@@ -124,9 +124,9 @@ export default function LoginPage() {
               marginTop: '0.5rem',
               padding: '0.8rem',
               borderRadius: '10px',
-              background: '#f5c842',
-              color: '#000',
-              fontWeight: 900,
+              background: '#29afd4',
+              color: '#091e2a',
+              fontWeight: 800,
               fontSize: '0.95rem',
               border: 'none',
               cursor: loading ? 'not-allowed' : 'pointer',
@@ -140,15 +140,15 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p style={{ marginTop: '1.25rem', fontSize: '0.82rem', color: '#555', textAlign: 'center' }}>
+        <p style={{ marginTop: '1.25rem', fontSize: '0.82rem', color: '#94a3b8', textAlign: 'center' }}>
           Don&apos;t have an account?{' '}
-          <Link href="/signup" style={{ color: '#f5c842', fontWeight: 700, textDecoration: 'none' }}>
+          <Link href="/signup" style={{ color: '#29afd4', fontWeight: 700, textDecoration: 'none' }}>
             Create one
           </Link>
         </p>
 
         <p style={{ marginTop: '0.6rem', textAlign: 'center' }}>
-          <span style={{ fontSize: '0.75rem', color: '#333', cursor: 'default' }}>
+          <span style={{ fontSize: '0.75rem', color: '#94a3b8', cursor: 'default' }}>
             Forgot password?
           </span>
         </p>

@@ -14,7 +14,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 }
 const DIFFICULTIES = [0, 1, 2, 3]
 const DIFF_LABEL = ['Easy', 'Medium', 'Hard', 'Expert']
-const DIFF_COLOR = ['#22c55e', '#eab308', '#f97316', '#ef4444']
+const DIFF_COLOR = ['#16a34a', '#facc15', '#f97316', '#ef4444']
 const PAGE_SIZE = 50
 
 interface Prompt {
@@ -34,9 +34,9 @@ interface Props {
   showToast: (msg: string, ok?: boolean) => void
 }
 
-const INPUT: React.CSSProperties = { background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: 6, padding: '0.3rem 0.5rem', color: '#c8d8c8', fontFamily: 'Lexend, sans-serif', fontSize: '0.8rem' }
-const TH: React.CSSProperties = { fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', color: '#4a7a4a', textTransform: 'uppercase', padding: '0.5rem 0.6rem', textAlign: 'left', whiteSpace: 'nowrap' }
-const TD: React.CSSProperties = { padding: '0.45rem 0.6rem', fontSize: '0.8rem', color: '#c8d8c8', borderTop: '1px solid #1a2e1a' }
+const INPUT: React.CSSProperties = { background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: 6, padding: '0.3rem 0.5rem', color: '#c8d8c8', fontFamily: 'Poppins, sans-serif', fontSize: '0.8rem' }
+const TH: React.CSSProperties = { fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', color: '#29afd4', textTransform: 'uppercase', padding: '0.5rem 0.6rem', textAlign: 'left', whiteSpace: 'nowrap' }
+const TD: React.CSSProperties = { padding: '0.45rem 0.6rem', fontSize: '0.8rem', color: '#c8d8c8', borderTop: '1px solid #1a4a5a' }
 
 export default function PromptsTab({ supabase, showToast }: Props) {
   const [prompts, setPrompts] = useState<Prompt[]>([])
@@ -187,33 +187,33 @@ export default function PromptsTab({ supabase, showToast }: Props) {
           onChange={e => setSearch(e.target.value)}
           style={{ ...INPUT, minWidth: 180 }}
         />
-        <span style={{ fontSize: '0.72rem', color: '#52525b', marginLeft: 'auto' }}>
+        <span style={{ fontSize: '0.72rem', color: '#64748b', marginLeft: 'auto' }}>
           Showing {filtered.length} of {prompts.length} prompts
         </span>
       </div>
 
       {/* Bulk action bar */}
       {checked.size > 0 && (
-        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', background: '#0d1710', border: '1px solid #22c55e', borderRadius: 8, padding: '0.5rem 0.75rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: '0.75rem', color: '#22c55e', fontWeight: 700 }}>{checked.size} selected</span>
+        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', background: '#0d2d3d', border: '1px solid #29afd4', borderRadius: 8, padding: '0.5rem 0.75rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
+          <span style={{ fontSize: '0.75rem', color: '#29afd4', fontWeight: 700 }}>{checked.size} selected</span>
           {(['eligible', 'not_eligible', 'hide', 'unhide'] as const).map(a => (
-            <button key={a} onClick={() => bulkAction(a)} style={{ background: '#152815', border: '1px solid #1a2e1a', borderRadius: 6, padding: '0.25rem 0.6rem', color: '#c8d8c8', cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.72rem' }}>
+            <button key={a} onClick={() => bulkAction(a)} style={{ background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: 6, padding: '0.25rem 0.6rem', color: '#c8d8c8', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.72rem' }}>
               {{ eligible: 'Mark Eligible', not_eligible: 'Remove Eligible', hide: 'Hide', unhide: 'Unhide' }[a]}
             </button>
           ))}
           <select value={bulkDiff} onChange={e => setBulkDiff(Number(e.target.value))} style={{ ...SEL, fontSize: '0.72rem' }}>
             {DIFFICULTIES.map(d => <option key={d} value={d}>{DIFF_LABEL[d]}</option>)}
           </select>
-          <button onClick={() => bulkAction('diff')} style={{ background: '#152815', border: '1px solid #1a2e1a', borderRadius: 6, padding: '0.25rem 0.6rem', color: '#c8d8c8', cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.72rem' }}>Move to Difficulty</button>
+          <button onClick={() => bulkAction('diff')} style={{ background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: 6, padding: '0.25rem 0.6rem', color: '#c8d8c8', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.72rem' }}>Move to Difficulty</button>
         </div>
       )}
 
       {loading ? (
-        <div style={{ color: '#52525b', padding: '2rem' }}>Loading prompts…</div>
+        <div style={{ color: '#64748b', padding: '2rem' }}>Loading prompts…</div>
       ) : (
-        <div style={{ background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: 12, overflow: 'hidden' }}>
+        <div style={{ background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: 12, overflow: 'hidden' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-            <thead style={{ background: '#0d1710' }}>
+            <thead style={{ background: '#0f3547' }}>
               <tr>
                 <th style={{ ...TH, width: 32 }}>
                   <input type="checkbox" checked={allPageChecked} onChange={toggleAllPage} style={{ cursor: 'pointer' }} />
@@ -231,32 +231,32 @@ export default function PromptsTab({ supabase, showToast }: Props) {
             <tbody>
               {pageData.map(p => (
                 <React.Fragment key={p.prompt_id}>
-                  <tr style={{ background: checked.has(p.prompt_id) ? '#152815' : 'transparent' }}
-                    onMouseEnter={e => { if (!checked.has(p.prompt_id)) (e.currentTarget as HTMLElement).style.background = '#0f1f0f' }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = checked.has(p.prompt_id) ? '#152815' : 'transparent' }}>
+                  <tr style={{ background: checked.has(p.prompt_id) ? '#0d2d3d' : 'transparent' }}
+                    onMouseEnter={e => { if (!checked.has(p.prompt_id)) (e.currentTarget as HTMLElement).style.background = '#0f3547' }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = checked.has(p.prompt_id) ? '#0d2d3d' : 'transparent' }}>
                     <td style={TD}><input type="checkbox" checked={checked.has(p.prompt_id)} onChange={() => toggleCheck(p.prompt_id)} style={{ cursor: 'pointer' }} /></td>
-                    <td style={{ ...TD, color: '#52525b', fontSize: '0.68rem', whiteSpace: 'nowrap' }}>{p.prompt_id}</td>
+                    <td style={{ ...TD, color: '#64748b', fontSize: '0.68rem', whiteSpace: 'nowrap' }}>{p.prompt_id}</td>
                     <td style={{ ...TD, fontWeight: 600, maxWidth: 300 }}>{p.payload?.text}</td>
-                    <td style={{ ...TD, color: '#52525b', fontSize: '0.72rem' }}>{p.category_id}</td>
+                    <td style={{ ...TD, color: '#64748b', fontSize: '0.72rem' }}>{p.category_id}</td>
                     <td style={TD}>
                       <span style={{ background: DIFF_COLOR[p.difficulty] + '22', color: DIFF_COLOR[p.difficulty], border: `1px solid ${DIFF_COLOR[p.difficulty]}44`, borderRadius: 999, padding: '0.1rem 0.45rem', fontSize: '0.68rem', fontWeight: 700 }}>
                         {DIFF_LABEL[p.difficulty]}
                       </span>
                     </td>
-                    <td style={TD}><span style={{ color: p.is_daily_eligible ? '#22c55e' : '#52525b' }}>{p.is_daily_eligible ? '✓' : '—'}</span></td>
-                    <td style={TD}><span style={{ color: p.is_hidden ? '#ef4444' : '#52525b' }}>{p.is_hidden ? '✗' : '—'}</span></td>
-                    <td style={TD}><span style={{ color: p.is_family_friendly ? '#22c55e' : '#52525b' }}>{p.is_family_friendly ? '✓' : '—'}</span></td>
+                    <td style={TD}><span style={{ color: p.is_daily_eligible ? '#29afd4' : '#64748b' }}>{p.is_daily_eligible ? '✓' : '—'}</span></td>
+                    <td style={TD}><span style={{ color: p.is_hidden ? '#ef4444' : '#64748b' }}>{p.is_hidden ? '✗' : '—'}</span></td>
+                    <td style={TD}><span style={{ color: p.is_family_friendly ? '#29afd4' : '#64748b' }}>{p.is_family_friendly ? '✓' : '—'}</span></td>
                     <td style={TD}>
                       <div style={{ display: 'flex', gap: '0.4rem' }}>
-                        <button title="Toggle daily eligible" onClick={() => toggleField(p, 'is_daily_eligible')} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.9rem', color: p.is_daily_eligible ? '#22c55e' : '#52525b' }}>◎</button>
-                        <button title="Toggle hidden" onClick={() => toggleField(p, 'is_hidden')} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.9rem', color: p.is_hidden ? '#ef4444' : '#52525b' }}>◉</button>
-                        <button title="Edit" onClick={() => { setEditingId(editingId === p.prompt_id ? null : p.prompt_id); setEditDraft({ payload: { ...p.payload }, difficulty: p.difficulty, is_family_friendly: p.is_family_friendly, notes: p.notes }) }} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.9rem', color: '#9ab89a' }}>✎</button>
+                        <button title="Toggle daily eligible" onClick={() => toggleField(p, 'is_daily_eligible')} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.9rem', color: p.is_daily_eligible ? '#29afd4' : '#64748b' }}>◎</button>
+                        <button title="Toggle hidden" onClick={() => toggleField(p, 'is_hidden')} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.9rem', color: p.is_hidden ? '#ef4444' : '#64748b' }}>◉</button>
+                        <button title="Edit" onClick={() => { setEditingId(editingId === p.prompt_id ? null : p.prompt_id); setEditDraft({ payload: { ...p.payload }, difficulty: p.difficulty, is_family_friendly: p.is_family_friendly, notes: p.notes }) }} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.9rem', color: '#94a3b8' }}>✎</button>
                       </div>
                     </td>
                   </tr>
                   {editingId === p.prompt_id && (
-                    <tr key={p.prompt_id + '_edit'} style={{ background: '#0f1f0f' }}>
-                      <td colSpan={9} style={{ padding: '0.75rem 1rem', borderTop: '1px solid #22c55e' }}>
+                    <tr key={p.prompt_id + '_edit'} style={{ background: '#0f3547' }}>
+                      <td colSpan={9} style={{ padding: '0.75rem 1rem', borderTop: '1px solid #29afd4' }}>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', maxWidth: 600 }}>
                           <input
                             value={editDraft.payload?.text ?? ''}
@@ -279,8 +279,8 @@ export default function PromptsTab({ supabase, showToast }: Props) {
                             style={{ ...INPUT, minHeight: 56, resize: 'vertical', width: '100%' }}
                           />
                           <div style={{ display: 'flex', gap: '0.5rem' }}>
-                            <button onClick={() => saveEdit(p.prompt_id)} style={{ background: '#22c55e', border: 'none', borderRadius: 6, padding: '0.35rem 0.9rem', color: '#000', cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.78rem', fontWeight: 700 }}>Save</button>
-                            <button onClick={() => setEditingId(null)} style={{ background: 'none', border: '1px solid #1a2e1a', borderRadius: 6, padding: '0.35rem 0.9rem', color: '#9ab89a', cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.78rem' }}>Cancel</button>
+                            <button onClick={() => saveEdit(p.prompt_id)} style={{ background: '#16a34a', border: 'none', borderRadius: 6, padding: '0.35rem 0.9rem', color: '#000', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.78rem', fontWeight: 700 }}>Save</button>
+                            <button onClick={() => setEditingId(null)} style={{ background: 'none', border: '1px solid #1a4a5a', borderRadius: 6, padding: '0.35rem 0.9rem', color: '#94a3b8', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.78rem' }}>Cancel</button>
                           </div>
                         </div>
                       </td>
@@ -297,7 +297,7 @@ export default function PromptsTab({ supabase, showToast }: Props) {
       {totalPages > 1 && (
         <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', marginTop: '1rem', justifyContent: 'flex-end' }}>
           <button onClick={() => setPage(p => Math.max(0, p - 1))} disabled={page === 0} style={{ ...INPUT, cursor: page === 0 ? 'not-allowed' : 'pointer', padding: '0.3rem 0.7rem', opacity: page === 0 ? 0.4 : 1 }}>Prev</button>
-          <span style={{ fontSize: '0.78rem', color: '#52525b' }}>Page {page + 1} of {totalPages}</span>
+          <span style={{ fontSize: '0.78rem', color: '#64748b' }}>Page {page + 1} of {totalPages}</span>
           <button onClick={() => setPage(p => Math.min(totalPages - 1, p + 1))} disabled={page >= totalPages - 1} style={{ ...INPUT, cursor: page >= totalPages - 1 ? 'not-allowed' : 'pointer', padding: '0.3rem 0.7rem', opacity: page >= totalPages - 1 ? 0.4 : 1 }}>Next</button>
         </div>
       )}

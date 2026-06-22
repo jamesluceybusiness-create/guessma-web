@@ -30,21 +30,21 @@ export default function CoreRules({ gs, update }: Props) {
   const guesserName = gs.hinterRole === 'host' ? partnerName : hostName
 
   return (
-    <div style={{ height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', background: '#0a0f0a', color: 'white' }}>
+    <div style={{ height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', background: '#091e2a', color: 'white' }}>
       <Nav />
       <div style={{
         flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
         padding: '1vh 2vw', paddingTop: 'calc(64px + 1vh)',
       }}>
         <div style={{
-          background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: '16px',
+          background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '16px',
           padding: 'clamp(1.5rem, 3vh, 2.5rem)', maxWidth: 'min(700px, 90vw)', width: '100%',
           maxHeight: 'calc(100vh - 64px - 4vh)', overflow: 'hidden',
           display: 'flex', flexDirection: 'column', gap: '1.5vh',
         }}>
           {/* Header */}
           <div>
-            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#22c55e', textTransform: 'uppercase', margin: '0 0 0.4rem' }}>
+            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#29afd4', textTransform: 'uppercase', margin: '0 0 0.4rem' }}>
               Core Round · {difficultyLabel}
             </p>
             <h1 style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)', fontWeight: 900, color: 'white', margin: 0, lineHeight: 1.1 }}>
@@ -53,18 +53,18 @@ export default function CoreRules({ gs, update }: Props) {
           </div>
 
           {/* Rules box */}
-          <div style={{ background: '#13131a', border: '1px solid #27272a', borderRadius: '12px', padding: '1.25rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            <p style={{ fontSize: '0.65rem', color: '#52525b', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, margin: 0 }}>
+          <div style={{ background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '12px', padding: '1.25rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <p style={{ fontSize: '0.65rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, margin: 0 }}>
               How to play
             </p>
             <p style={{ fontSize: '1.15rem', color: '#d4d4d8', margin: 0, lineHeight: 1.5 }}>
               {hinterName} gives clues. {guesserName} guesses. You have 60 seconds.
             </p>
-            <div style={{ borderTop: '1px solid #27272a', paddingTop: '0.75rem' }}>
-              <p style={{ fontSize: '0.65rem', color: '#52525b', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, margin: '0 0 0.35rem' }}>
+            <div style={{ borderTop: '1px solid #1a4a5a', paddingTop: '0.75rem' }}>
+              <p style={{ fontSize: '0.65rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, margin: '0 0 0.35rem' }}>
                 Category rule
               </p>
-              <p style={{ fontSize: '0.9rem', color: '#a1a1aa', margin: 0, lineHeight: 1.5 }}>
+              <p style={{ fontSize: '0.9rem', color: '#94a3b8', margin: 0, lineHeight: 1.5 }}>
                 {rules}
               </p>
             </div>
@@ -72,7 +72,7 @@ export default function CoreRules({ gs, update }: Props) {
 
           {/* Bonus callout */}
           <div style={{ background: 'rgba(234,179,8,0.08)', border: '1px solid rgba(234,179,8,0.2)', borderRadius: '12px', padding: '1rem 1.25rem' }}>
-            <p style={{ fontSize: '0.9rem', color: '#fde68a', margin: 0, lineHeight: 1.5, fontWeight: 600 }}>
+            <p style={{ fontSize: '0.9rem', color: '#facc15', margin: 0, lineHeight: 1.5, fontWeight: 600 }}>
               ⭐ Get all 5 prompts correct to unlock the BONUS prompt — worth the full round value!
             </p>
           </div>
@@ -80,10 +80,10 @@ export default function CoreRules({ gs, update }: Props) {
           {/* Role cards */}
           <div style={{ display: 'flex', gap: '0.75rem' }}>
             <div style={{
-              flex: 1, background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.25)',
+              flex: 1, background: 'rgba(41,175,212,0.12)', border: '1px solid #29afd4',
               borderRadius: '12px', padding: '1rem',
             }}>
-              <p style={{ fontSize: '0.6rem', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 0.4rem' }}>
+              <p style={{ fontSize: '0.6rem', fontWeight: 800, color: '#29afd4', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 0.4rem' }}>
                 Hinter
               </p>
               <p style={{ fontSize: '1.05rem', fontWeight: 800, color: 'white', margin: 0 }}>
@@ -91,10 +91,10 @@ export default function CoreRules({ gs, update }: Props) {
               </p>
             </div>
             <div style={{
-              flex: 1, background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.25)',
+              flex: 1, background: '#0d2d3d', border: '1px solid #1a4a5a',
               borderRadius: '12px', padding: '1rem',
             }}>
-              <p style={{ fontSize: '0.6rem', fontWeight: 800, color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 0.4rem' }}>
+              <p style={{ fontSize: '0.6rem', fontWeight: 800, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 0.4rem' }}>
                 Guesser
               </p>
               <p style={{ fontSize: '1.05rem', fontWeight: 800, color: 'white', margin: 0 }}>
@@ -105,15 +105,15 @@ export default function CoreRules({ gs, update }: Props) {
 
           {/* Prompt count + points info */}
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-            <span style={{ fontSize: '0.75rem', color: '#4a7a4a', fontWeight: 600 }}>
+            <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 600 }}>
               {gs.corePrompts.length} prompts
             </span>
-            <span style={{ fontSize: '0.75rem', color: '#27272a' }}>·</span>
-            <span style={{ fontSize: '0.75rem', color: '#4a7a4a', fontWeight: 600 }}>
+            <span style={{ fontSize: '0.75rem', color: '#1a4a5a' }}>·</span>
+            <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 600 }}>
               {(difficulty + 1) * 5} pts each
             </span>
-            <span style={{ fontSize: '0.75rem', color: '#27272a' }}>·</span>
-            <span style={{ fontSize: '0.75rem', color: '#eab308', fontWeight: 600 }}>
+            <span style={{ fontSize: '0.75rem', color: '#1a4a5a' }}>·</span>
+            <span style={{ fontSize: '0.75rem', color: '#facc15', fontWeight: 600 }}>
               {(difficulty + 1) * 25} pts bonus
             </span>
           </div>
@@ -125,7 +125,7 @@ export default function CoreRules({ gs, update }: Props) {
               width: '100%', height: 'clamp(2.8rem, 6vh, 3.5rem)', background: '#16a34a', color: 'white',
               border: 'none', borderRadius: '10px', fontWeight: 800, fontSize: 'clamp(0.9rem, 1.8vh, 1.1rem)',
               cursor: canStart ? 'pointer' : 'not-allowed',
-              opacity: canStart ? 1 : 0.35, fontFamily: 'Lexend, sans-serif',
+              opacity: canStart ? 1 : 0.35, fontFamily: 'Poppins, sans-serif',
             }}
           >
             Start Round →

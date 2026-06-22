@@ -18,7 +18,7 @@ export default function Sidebar({
   return (
     <div style={{
       display: 'flex', flexDirection: 'column', minHeight: 0,
-      borderLeft: '1px solid #27272a',
+      borderLeft: '1px solid #1a4a5a',
     }}>
       {/* Scores */}
       <div style={{ padding: '0.75rem 0.75rem 0.5rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
@@ -31,8 +31,8 @@ export default function Sidebar({
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                 padding: '0 0.65rem', borderRadius: '0.4rem', minHeight: '2.2rem',
                 fontSize: '0.9rem',
-                background: isActive ? '#facc15' : '#27272a',
-                color: isActive ? '#000' : '#d4d4d8',
+                background: isActive ? '#facc15' : '#1a4a5a',
+                color: isActive ? '#000' : '#94a3b8',
                 fontWeight: isActive ? 900 : 600,
               }}
             >

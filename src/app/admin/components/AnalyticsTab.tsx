@@ -39,14 +39,14 @@ interface Props {
   showToast: (msg: string, ok?: boolean) => void
 }
 
-const CARD: React.CSSProperties = { background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: 12, padding: '1.5rem', marginBottom: '1.5rem' }
-const TH: React.CSSProperties = { fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.1em', color: '#4a7a4a', textTransform: 'uppercase', padding: '0.45rem 0.6rem', textAlign: 'left', whiteSpace: 'nowrap' }
-const TD: React.CSSProperties = { padding: '0.4rem 0.6rem', fontSize: '0.78rem', color: '#c8d8c8', borderTop: '1px solid #1a2e1a' }
-const SECTION_TITLE: React.CSSProperties = { fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', color: '#22c55e', textTransform: 'uppercase', marginBottom: '1rem' }
+const CARD: React.CSSProperties = { background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: 12, padding: '1.5rem', marginBottom: '1.5rem' }
+const TH: React.CSSProperties = { fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.1em', color: '#29afd4', textTransform: 'uppercase', padding: '0.45rem 0.6rem', textAlign: 'left', whiteSpace: 'nowrap' }
+const TD: React.CSSProperties = { padding: '0.4rem 0.6rem', fontSize: '0.78rem', color: '#c8d8c8', borderTop: '1px solid #1a4a5a' }
+const SECTION_TITLE: React.CSSProperties = { fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', color: '#29afd4', textTransform: 'uppercase', marginBottom: '1rem' }
 
 function rateColor(rate: number) {
-  if (rate >= 0.7) return '#22c55e'
-  if (rate >= 0.5) return '#eab308'
+  if (rate >= 0.7) return '#16a34a'
+  if (rate >= 0.5) return '#facc15'
   return '#ef4444'
 }
 
@@ -123,10 +123,10 @@ export default function AnalyticsTab({ supabase, showToast }: Props) {
 
   const filteredPerf = perfCatFilter === 'all' ? performance : performance.filter(p => p.category_id === perfCatFilter)
 
-  const STAT_CARD: React.CSSProperties = { background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: 12, padding: '1.25rem 1.5rem', flex: 1, minWidth: 0 }
+  const STAT_CARD: React.CSSProperties = { background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: 12, padding: '1.25rem 1.5rem', flex: 1, minWidth: 0 }
 
   if (loading) return (
-    <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#52525b' }}>Loading analytics…</div>
+    <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b' }}>Loading analytics…</div>
   )
 
   return (
@@ -140,7 +140,7 @@ export default function AnalyticsTab({ supabase, showToast }: Props) {
           { label: 'Prompts Used', value: totalUsed },
         ].map(({ label, value }) => (
           <div key={label} style={STAT_CARD}>
-            <div style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.1em', color: '#52525b', textTransform: 'uppercase', marginBottom: '0.4rem' }}>{label}</div>
+            <div style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.1em', color: '#64748b', textTransform: 'uppercase', marginBottom: '0.4rem' }}>{label}</div>
             <div style={{ fontSize: '2rem', fontWeight: 900, color: '#fff', lineHeight: 1 }}>{value.toLocaleString()}</div>
           </div>
         ))}
@@ -150,7 +150,7 @@ export default function AnalyticsTab({ supabase, showToast }: Props) {
       <div style={CARD}>
         <div style={SECTION_TITLE}>Difficulty Suggestions</div>
         {suggestions.length === 0 ? (
-          <div style={{ color: '#52525b', fontSize: '0.85rem' }}>No flagged prompts — looking good</div>
+          <div style={{ color: '#64748b', fontSize: '0.85rem' }}>No flagged prompts — looking good</div>
         ) : (
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
@@ -163,15 +163,15 @@ export default function AnalyticsTab({ supabase, showToast }: Props) {
             <tbody>
               {suggestions.map(s => (
                 <tr key={s.id}>
-                  <td style={{ ...TD, fontFamily: 'monospace', fontSize: '0.72rem', color: '#52525b' }}>{s.prompt_id}</td>
+                  <td style={{ ...TD, fontFamily: 'monospace', fontSize: '0.72rem', color: '#64748b' }}>{s.prompt_id}</td>
                   <td style={TD}>{DIFF_LABEL[s.current_difficulty]}</td>
-                  <td style={{ ...TD, color: '#22c55e', fontWeight: 700 }}>{DIFF_LABEL[s.suggested_difficulty]}</td>
+                  <td style={{ ...TD, color: '#29afd4', fontWeight: 700 }}>{DIFF_LABEL[s.suggested_difficulty]}</td>
                   <td style={{ ...TD, color: rateColor(s.correct_rate) }}>{(s.correct_rate * 100).toFixed(1)}%</td>
                   <td style={TD}>{s.sample_size}</td>
                   <td style={TD}>
                     <div style={{ display: 'flex', gap: '0.4rem' }}>
-                      <button onClick={() => applySuggestion(s)} style={{ background: '#14532d', border: '1px solid #22c55e', borderRadius: 6, padding: '0.2rem 0.6rem', color: '#22c55e', cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.72rem', fontWeight: 700 }}>Apply</button>
-                      <button onClick={() => dismissSuggestion(s)} style={{ background: 'none', border: '1px solid #1a2e1a', borderRadius: 6, padding: '0.2rem 0.6rem', color: '#9ab89a', cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.72rem' }}>Dismiss</button>
+                      <button onClick={() => applySuggestion(s)} style={{ background: '#14532d', border: '1px solid #29afd4', borderRadius: 6, padding: '0.2rem 0.6rem', color: '#29afd4', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.72rem', fontWeight: 700 }}>Apply</button>
+                      <button onClick={() => dismissSuggestion(s)} style={{ background: 'none', border: '1px solid #1a4a5a', borderRadius: 6, padding: '0.2rem 0.6rem', color: '#94a3b8', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.72rem' }}>Dismiss</button>
                     </div>
                   </td>
                 </tr>
@@ -188,14 +188,14 @@ export default function AnalyticsTab({ supabase, showToast }: Props) {
           <select
             value={perfCatFilter}
             onChange={e => setPerfCatFilter(e.target.value)}
-            style={{ background: '#152815', border: '1px solid #1a2e1a', borderRadius: 6, padding: '0.25rem 0.5rem', color: '#c8d8c8', fontFamily: 'Lexend, sans-serif', fontSize: '0.78rem', cursor: 'pointer', marginBottom: '1rem' }}
+            style={{ background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: 6, padding: '0.25rem 0.5rem', color: '#c8d8c8', fontFamily: 'Poppins, sans-serif', fontSize: '0.78rem', cursor: 'pointer', marginBottom: '1rem' }}
           >
             <option value="all">All Categories</option>
             {CATEGORIES_ALL.map(c => <option key={c} value={c}>{c}</option>)}
           </select>
         </div>
         {filteredPerf.length === 0 ? (
-          <div style={{ color: '#52525b', fontSize: '0.85rem' }}>No performance data yet — data populates as players complete rounds</div>
+          <div style={{ color: '#64748b', fontSize: '0.85rem' }}>No performance data yet — data populates as players complete rounds</div>
         ) : (
           <div style={{ overflow: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 700 }}>
@@ -210,7 +210,7 @@ export default function AnalyticsTab({ supabase, showToast }: Props) {
                 {filteredPerf.map(p => (
                   <tr key={p.prompt_id}>
                     <td style={{ ...TD, maxWidth: 260, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontWeight: 600 }}>{p.payload?.text ?? p.prompt_id}</td>
-                    <td style={{ ...TD, color: '#52525b', fontSize: '0.7rem' }}>{p.category_id}</td>
+                    <td style={{ ...TD, color: '#64748b', fontSize: '0.7rem' }}>{p.category_id}</td>
                     <td style={TD}>{p.shown_count ?? 0}</td>
                     <td style={TD}>{p.correct_count ?? 0}</td>
                     <td style={TD}>{p.skipped_count ?? 0}</td>
@@ -234,11 +234,11 @@ export default function AnalyticsTab({ supabase, showToast }: Props) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
           {coverage.map(c => {
             const pct = c.total > 0 ? Math.round((c.eligible / c.total) * 100) : 0
-            const color = c.eligible >= 30 ? '#22c55e' : c.eligible >= 15 ? '#eab308' : '#ef4444'
+            const color = c.eligible >= 30 ? '#16a34a' : c.eligible >= 15 ? '#facc15' : '#ef4444'
             return (
               <div key={c.category_id} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <span style={{ fontSize: '0.78rem', color: '#c8d8c8', minWidth: 260, fontFamily: 'monospace' }}>{c.category_id}</span>
-                <div style={{ flex: 1, background: '#0a0f0a', borderRadius: 999, height: 6, overflow: 'hidden' }}>
+                <div style={{ flex: 1, background: '#091e2a', borderRadius: 999, height: 6, overflow: 'hidden' }}>
                   <div style={{ width: `${pct}%`, height: '100%', background: color, borderRadius: 999, transition: 'width 0.3s' }} />
                 </div>
                 <span style={{ fontSize: '0.78rem', color, fontWeight: 700, minWidth: 80 }}>
@@ -248,7 +248,7 @@ export default function AnalyticsTab({ supabase, showToast }: Props) {
             )
           })}
         </div>
-        <p style={{ fontSize: '0.72rem', color: '#52525b', marginTop: '0.75rem', lineHeight: 1.5 }}>
+        <p style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '0.75rem', lineHeight: 1.5 }}>
           Minimum 30 eligible prompts per category recommended for 30-day rotation without repeats
         </p>
       </div>

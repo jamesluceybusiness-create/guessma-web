@@ -19,7 +19,7 @@ const INPUT: React.CSSProperties = {
   borderRadius: 8,
   padding: '0.75rem 0.85rem',
   color: '#c8d8c8',
-  fontFamily: 'Lexend, sans-serif',
+  fontFamily: 'Poppins, sans-serif',
   fontSize: '1.4rem',
   width: '100%',
   letterSpacing: '0.25em',
@@ -87,7 +87,7 @@ export default function AdminVerifyPage() {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontFamily: 'Lexend, sans-serif',
+    fontFamily: 'Poppins, sans-serif',
     padding: '2rem 1rem',
   }
 
@@ -143,7 +143,7 @@ export default function AdminVerifyPage() {
               padding: '0.7rem',
               color: code.length === 6 ? '#000' : '#52525b',
               cursor: verifying || code.length !== 6 ? 'not-allowed' : 'pointer',
-              fontFamily: 'Lexend, sans-serif',
+              fontFamily: 'Poppins, sans-serif',
               fontSize: '0.95rem',
               fontWeight: 900,
               transition: 'background 0.15s',

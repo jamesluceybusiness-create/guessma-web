@@ -34,11 +34,11 @@ export default function IcebreakerRules({ update }: Props) {
   const isLast = page === RULES.length - 1
 
   return (
-    <div style={{ height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', background: '#0a0f0a', color: 'white' }}>
+    <div style={{ height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', background: '#091e2a', color: 'white' }}>
       <Nav />
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1vh 2vw', paddingTop: 'calc(64px + 1vh)' }}>
         <div style={{
-          background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: '16px',
+          background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '16px',
           padding: 'clamp(1.5rem, 3vh, 2.5rem)', width: '100%', maxWidth: 'min(720px, 90vw)',
           maxHeight: 'calc(100vh - 64px - 4vh)', overflow: 'hidden',
           display: 'flex', flexDirection: 'column', gap: '2vh',
@@ -49,7 +49,7 @@ export default function IcebreakerRules({ update }: Props) {
             {RULES.map((_, i) => (
               <div key={i} style={{
                 width: '0.45rem', height: '0.45rem', borderRadius: '50%',
-                background: i === page ? '#22c55e' : '#1a2e1a',
+                background: i === page ? '#29afd4' : '#1a4a5a',
                 transition: 'background 0.2s',
               }} />
             ))}
@@ -61,7 +61,7 @@ export default function IcebreakerRules({ update }: Props) {
             <h2 style={{ color: 'white', fontSize: 'clamp(1.1rem, 2.2vh, 1.25rem)', fontWeight: 800, margin: '0 0 0.75rem' }}>
               {rule.title}
             </h2>
-            <p style={{ color: '#a0c4a0', fontSize: 'clamp(0.95rem, 2vh, 1.2rem)', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ color: '#94a3b8', fontSize: 'clamp(0.95rem, 2vh, 1.2rem)', lineHeight: 1.6, margin: 0 }}>
               {rule.body}
             </p>
           </div>
@@ -72,9 +72,9 @@ export default function IcebreakerRules({ update }: Props) {
               <button
                 onClick={() => setPage(p => p - 1)}
                 style={{
-                  flex: 1, height: 'clamp(2.8rem, 6vh, 3.5rem)', background: 'transparent', color: '#4a7a4a',
-                  border: '1px solid #1a2e1a', borderRadius: '10px', fontWeight: 700, fontSize: 'clamp(0.9rem, 1.8vh, 1.1rem)',
-                  cursor: 'pointer', fontFamily: 'Lexend, sans-serif',
+                  flex: 1, height: 'clamp(2.8rem, 6vh, 3.5rem)', background: 'transparent', color: '#94a3b8',
+                  border: '1px solid #1a4a5a', borderRadius: '10px', fontWeight: 700, fontSize: 'clamp(0.9rem, 1.8vh, 1.1rem)',
+                  cursor: 'pointer', fontFamily: 'Poppins, sans-serif',
                 }}
               >
                 ← Back
@@ -86,7 +86,7 @@ export default function IcebreakerRules({ update }: Props) {
                 style={{
                   flex: 1, height: 'clamp(2.8rem, 6vh, 3.5rem)', background: '#16a34a', color: 'white',
                   border: 'none', borderRadius: '10px', fontWeight: 800, fontSize: 'clamp(0.9rem, 1.8vh, 1.1rem)',
-                  cursor: 'pointer', fontFamily: 'Lexend, sans-serif',
+                  cursor: 'pointer', fontFamily: 'Poppins, sans-serif',
                 }}
               >
                 Next →
@@ -98,7 +98,7 @@ export default function IcebreakerRules({ update }: Props) {
                 style={{
                   flex: 1, height: 'clamp(2.8rem, 6vh, 3.5rem)', background: '#16a34a', color: 'white',
                   border: 'none', borderRadius: '10px', fontWeight: 800, fontSize: 'clamp(0.9rem, 1.8vh, 1.1rem)',
-                  cursor: 'pointer', fontFamily: 'Lexend, sans-serif',
+                  cursor: 'pointer', fontFamily: 'Poppins, sans-serif',
                 }}
               >
                 Got it — Show the Image →

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { SupabaseClient } from '@supabase/supabase-js'
 
-const CARD: React.CSSProperties = { background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: 12 }
+const CARD: React.CSSProperties = { background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: 12 }
 const CATEGORIES = ['core_sports', 'core_food', 'core_groups', 'core_wabws', 'core_actitout']
 const CATEGORY_LABELS: Record<string, string> = {
   core_sports: 'Sports',
@@ -51,24 +51,24 @@ function getDifficultyForDow(dow: number): number {
 
 const ICON_BTN: React.CSSProperties = {
   background: 'none',
-  border: '1px solid #1a2e1a',
+  border: '1px solid #1a4a5a',
   borderRadius: 6,
   padding: '0.2rem 0.45rem',
-  color: '#9ab89a',
+  color: '#94a3b8',
   cursor: 'pointer',
-  fontFamily: 'Lexend, sans-serif',
+  fontFamily: 'Poppins, sans-serif',
   fontSize: '0.8rem',
   lineHeight: 1,
   flexShrink: 0,
 }
 
 const INPUT_STYLE: React.CSSProperties = {
-  background: '#0a0f0a',
-  border: '1px solid #1a2e1a',
+  background: '#091e2a',
+  border: '1px solid #1a4a5a',
   borderRadius: 6,
   padding: '0.3rem 0.5rem',
   color: '#c8d8c8',
-  fontFamily: 'Lexend, sans-serif',
+  fontFamily: 'Poppins, sans-serif',
   fontSize: '0.78rem',
   outline: 'none',
   flex: 1,
@@ -641,24 +641,24 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
   function dotColor(date: string) {
     const row = schedule[date]
     if (!row) return '#ef4444'
-    if (row.published) return '#22c55e'
-    return '#eab308'
+    if (row.published) return '#16a34a'
+    return '#facc15'
   }
 
   function dayBg(date: string) {
     const row = schedule[date]
-    if (!row) return '#0d1710'
-    if (row.published) return '#1a3a1a'
-    return '#1a2a1a'
+    if (!row) return '#0d2d3d'
+    if (row.published) return '#0f3547'
+    return '#13384a'
   }
 
   function dayBorder(date: string) {
     const isToday = date === today
     const row = schedule[date]
     if (isToday) return '2px solid #fff'
-    if (!row) return '1px solid #1a2e1a'
-    if (row.published) return '1px solid #22c55e'
-    return '1px solid #eab308'
+    if (!row) return '1px solid #1a4a5a'
+    if (row.published) return '1px solid #16a34a'
+    return '1px solid #facc15'
   }
 
   const selected = selectedDate ? schedule[selectedDate] : null
@@ -674,12 +674,12 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
 
   const BTN_SM: React.CSSProperties = {
     background: 'none',
-    border: '1px solid #1a2e1a',
+    border: '1px solid #1a4a5a',
     borderRadius: 6,
     padding: '0.2rem 0.55rem',
-    color: '#9ab89a',
+    color: '#94a3b8',
     cursor: 'pointer',
-    fontFamily: 'Lexend, sans-serif',
+    fontFamily: 'Poppins, sans-serif',
     fontSize: '0.72rem',
     fontWeight: 600,
     whiteSpace: 'nowrap' as const,
@@ -693,14 +693,14 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
 
         {/* Panel header */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
-          <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', color: '#52525b', textTransform: 'uppercase' }}>
+          <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', color: '#64748b', textTransform: 'uppercase' }}>
             {loading ? 'Loading…' : '30-Day Schedule'}
           </div>
           <div style={{ display: 'flex', gap: '0.4rem' }}>
             <button
               onClick={generateWeek}
               disabled={generatingWeek}
-              style={{ ...BTN_SM, borderColor: '#22c55e', color: '#22c55e', opacity: generatingWeek ? 0.5 : 1 }}
+              style={{ ...BTN_SM, borderColor: '#29afd4', color: '#29afd4', opacity: generatingWeek ? 0.5 : 1 }}
             >
               {generatingWeek ? 'Generating…' : 'Generate Week →'}
             </button>
@@ -722,9 +722,9 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
               onClick={() => setViewMode(mode)}
               style={{
                 ...BTN_SM,
-                background: viewMode === mode ? '#1a2e1a' : 'none',
-                color: viewMode === mode ? '#22c55e' : '#52525b',
-                borderColor: viewMode === mode ? '#22c55e' : '#1a2e1a',
+                background: viewMode === mode ? '#1a4a5a' : 'none',
+                color: viewMode === mode ? '#29afd4' : '#64748b',
+                borderColor: viewMode === mode ? '#29afd4' : '#1a4a5a',
                 textTransform: 'capitalize',
               }}
             >
@@ -744,7 +744,7 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
                     onClick={() => selectDay(date)}
                     style={{
                       background: dayBg(date),
-                      border: selectedDate === date ? '2px solid #22c55e' : dayBorder(date),
+                      border: selectedDate === date ? '2px solid #29afd4' : dayBorder(date),
                       borderRadius: 8,
                       padding: '0.4rem 0.3rem',
                       cursor: 'pointer',
@@ -753,16 +753,16 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
                       transition: 'opacity 0.1s',
                     }}
                   >
-                    <div style={{ fontSize: '0.65rem', color: '#52525b' }}>{DAY_ABBR[d.getDay()]}</div>
+                    <div style={{ fontSize: '0.65rem', color: '#64748b' }}>{DAY_ABBR[d.getDay()]}</div>
                     <div style={{ fontSize: '0.85rem', fontWeight: date === today ? 900 : 600, color: date === today ? '#fff' : '#c8d8c8' }}>{d.getDate()}</div>
                     <div style={{ position: 'absolute', top: 3, right: 4, width: 6, height: 6, borderRadius: '50%', background: dotColor(date) }} />
                   </div>
                 )
               })}
             </div>
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', fontSize: '0.65rem', color: '#52525b' }}>
-              <span><span style={{ color: '#22c55e' }}>●</span> Published</span>
-              <span><span style={{ color: '#eab308' }}>●</span> Draft</span>
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', fontSize: '0.65rem', color: '#64748b' }}>
+              <span><span style={{ color: '#16a34a' }}>●</span> Published</span>
+              <span><span style={{ color: '#facc15' }}>●</span> Draft</span>
               <span><span style={{ color: '#ef4444' }}>●</span> Empty</span>
             </div>
           </>
@@ -779,25 +779,25 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
                   style={{
                     flexShrink: 0,
                     width: '80px',
-                    background: selectedDate === date ? '#1a3a1a' : dayBg(date),
-                    border: selectedDate === date ? '2px solid #22c55e' : dayBorder(date),
+                    background: selectedDate === date ? '#0f3547' : dayBg(date),
+                    border: selectedDate === date ? '2px solid #29afd4' : dayBorder(date),
                     borderRadius: 8,
                     padding: '0.6rem 0.4rem',
                     cursor: 'pointer',
                     textAlign: 'center',
                   }}
                 >
-                  <div style={{ fontSize: '0.6rem', color: '#52525b' }}>{DAY_ABBR[d.getDay()]}</div>
+                  <div style={{ fontSize: '0.6rem', color: '#64748b' }}>{DAY_ABBR[d.getDay()]}</div>
                   <div style={{ fontSize: '1.1rem', fontWeight: 900, color: date === today ? '#fff' : '#c8d8c8', lineHeight: 1.2 }}>{d.getDate()}</div>
                   {row ? (
                     <>
-                      <div style={{ fontSize: '0.58rem', color: '#9ab89a', marginTop: '0.3rem', lineHeight: 1.3 }}>
+                      <div style={{ fontSize: '0.58rem', color: '#94a3b8', marginTop: '0.3rem', lineHeight: 1.3 }}>
                         {CATEGORY_LABELS[row.core_category_id] ?? row.core_category_id}
                       </div>
-                      <div style={{ fontSize: '0.55rem', color: '#52525b' }}>
+                      <div style={{ fontSize: '0.55rem', color: '#64748b' }}>
                         {DIFFICULTIES.find(d => d.value === row.core_difficulty)?.label}
                       </div>
-                      <div style={{ fontSize: '0.55rem', fontWeight: 700, color: row.published ? '#22c55e' : '#eab308', marginTop: '0.2rem' }}>
+                      <div style={{ fontSize: '0.55rem', fontWeight: 700, color: row.published ? '#16a34a' : '#facc15', marginTop: '0.2rem' }}>
                         {row.published ? '✓ Pub' : 'Draft'}
                       </div>
                     </>
@@ -854,21 +854,21 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
           {/* Category + Difficulty + Publish */}
           <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '1rem', flexWrap: 'wrap', alignItems: 'flex-end' }}>
             <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-              <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#4a7a4a', textTransform: 'uppercase' }}>Category</span>
+              <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#29afd4', textTransform: 'uppercase' }}>Category</span>
               <select
                 value={editState.core_category_id ?? CATEGORIES[0]}
                 onChange={e => setEditState(prev => ({ ...prev, core_category_id: e.target.value }))}
-                style={{ background: '#152815', border: '1px solid #1a2e1a', borderRadius: 6, padding: '0.3rem 0.5rem', color: '#c8d8c8', fontFamily: 'Lexend, sans-serif', fontSize: '0.82rem' }}
+                style={{ background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: 6, padding: '0.3rem 0.5rem', color: '#c8d8c8', fontFamily: 'Poppins, sans-serif', fontSize: '0.82rem' }}
               >
                 {CATEGORIES.map(c => <option key={c} value={c}>{CATEGORY_LABELS[c] ?? c}</option>)}
               </select>
             </label>
             <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-              <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#4a7a4a', textTransform: 'uppercase' }}>Difficulty</span>
+              <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#29afd4', textTransform: 'uppercase' }}>Difficulty</span>
               <select
                 value={editState.core_difficulty ?? 0}
                 onChange={e => setEditState(prev => ({ ...prev, core_difficulty: Number(e.target.value) }))}
-                style={{ background: '#152815', border: '1px solid #1a2e1a', borderRadius: 6, padding: '0.3rem 0.5rem', color: '#c8d8c8', fontFamily: 'Lexend, sans-serif', fontSize: '0.82rem' }}
+                style={{ background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: 6, padding: '0.3rem 0.5rem', color: '#c8d8c8', fontFamily: 'Poppins, sans-serif', fontSize: '0.82rem' }}
               >
                 {DIFFICULTIES.map(d => <option key={d.value} value={d.value}>{d.label}</option>)}
               </select>
@@ -876,11 +876,11 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
             <button
               onClick={togglePublished}
               style={{
-                background: editState.published ? '#14532d' : '#1a2e1a',
-                border: `1px solid ${editState.published ? '#22c55e' : '#1a2e1a'}`,
+                background: editState.published ? '#14532d' : '#1a4a5a',
+                border: `1px solid ${editState.published ? '#16a34a' : '#1a4a5a'}`,
                 borderRadius: 6, padding: '0.3rem 0.8rem',
-                color: editState.published ? '#22c55e' : '#52525b',
-                cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.82rem', fontWeight: 700,
+                color: editState.published ? '#16a34a' : '#64748b',
+                cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.82rem', fontWeight: 700,
               }}
             >
               {editState.published ? '✓ Published' : 'Draft'}
@@ -900,13 +900,13 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
             <button
               onClick={() => autoFill(selectedDate)}
               disabled={filling}
-              style={{ background: '#14532d', border: '1px solid #22c55e', borderRadius: 8, padding: '0.45rem 1.1rem', color: '#22c55e', cursor: filling ? 'not-allowed' : 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.82rem', fontWeight: 700, opacity: filling ? 0.6 : 1 }}
+              style={{ background: '#14532d', border: '1px solid #29afd4', borderRadius: 8, padding: '0.45rem 1.1rem', color: '#29afd4', cursor: filling ? 'not-allowed' : 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.82rem', fontWeight: 700, opacity: filling ? 0.6 : 1 }}
             >
               {filling ? 'Filling…' : selected ? 'Auto-fill Prompts' : 'Auto-fill This Day'}
             </button>
             <button
               onClick={() => setShowManual(v => !v)}
-              style={{ background: 'none', border: '1px solid #1a2e1a', borderRadius: 8, padding: '0.45rem 1.1rem', color: '#9ab89a', cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.82rem' }}
+              style={{ background: 'none', border: '1px solid #1a4a5a', borderRadius: 8, padding: '0.45rem 1.1rem', color: '#94a3b8', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.82rem' }}
             >
               {showManual ? 'Hide Manual' : 'Schedule Manually'}
             </button>
@@ -915,20 +915,20 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
           {/* ── Interactive Core Prompts ─────────────────────────────────── */}
           {preview.length > 0 && (
             <div style={{ marginBottom: '1.25rem' }}>
-              <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#4a7a4a', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+              <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#29afd4', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
                 Core Prompts
               </div>
 
               {preview.map((p, i) => (
                 <div key={p.prompt_id}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.4rem 0', borderBottom: '1px solid #1a2e1a' }}>
-                    <span style={{ color: '#52525b', minWidth: 16, fontSize: '0.72rem', flexShrink: 0 }}>{i + 1}.</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.4rem 0', borderBottom: '1px solid #1a4a5a' }}>
+                    <span style={{ color: '#64748b', minWidth: 16, fontSize: '0.72rem', flexShrink: 0 }}>{i + 1}.</span>
                     <span style={{ flex: 1, fontSize: '0.82rem', fontWeight: 600, color: '#c8d8c8', minWidth: 0 }}>{p.payload?.text}</span>
                     <div style={{ display: 'flex', gap: '0.25rem', flexShrink: 0 }}>
                       <button
                         onClick={() => openSwap(i)}
                         title="Swap this prompt"
-                        style={{ ...ICON_BTN, borderColor: swapSearchIndex === i ? '#22c55e' : '#1a2e1a', color: swapSearchIndex === i ? '#22c55e' : '#9ab89a' }}
+                        style={{ ...ICON_BTN, borderColor: swapSearchIndex === i ? '#29afd4' : '#1a4a5a', color: swapSearchIndex === i ? '#29afd4' : '#94a3b8' }}
                       >↔</button>
                       <button onClick={() => handleRemoveAndReplace(i)} title="Replace with random" style={ICON_BTN}>🔄</button>
                       {flagConfirmIndex === i ? (
@@ -944,7 +944,7 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
                   </div>
 
                   {swapSearchIndex === i && (
-                    <div style={{ padding: '0.5rem 0 0.5rem 1.5rem', background: '#0a0f0a', borderBottom: '1px solid #1a2e1a' }}>
+                    <div style={{ padding: '0.5rem 0 0.5rem 1.5rem', background: '#091e2a', borderBottom: '1px solid #1a4a5a' }}>
                       <div style={{ display: 'flex', gap: '0.4rem', marginBottom: '0.3rem' }}>
                         <input
                           ref={swapInputRef}
@@ -961,14 +961,14 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
                           key={r.prompt_id}
                           onClick={() => handleSwapPrompt(i, r)}
                           style={{ padding: '0.3rem 0.5rem', borderRadius: 5, cursor: 'pointer', fontSize: '0.78rem', color: '#c8d8c8' }}
-                          onMouseEnter={e => (e.currentTarget.style.background = '#1a2e1a')}
+                          onMouseEnter={e => (e.currentTarget.style.background = '#1a4a5a')}
                           onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
                         >
                           {r.payload?.text}
                         </div>
                       ))}
                       {swapSearchText && swapSearchResults.length === 0 && (
-                        <div style={{ fontSize: '0.7rem', color: '#52525b', padding: '0.25rem 0.5rem' }}>No results</div>
+                        <div style={{ fontSize: '0.7rem', color: '#64748b', padding: '0.25rem 0.5rem' }}>No results</div>
                       )}
                     </div>
                   )}
@@ -977,14 +977,14 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
 
               {/* Notes */}
               <div style={{ marginTop: '1rem' }}>
-                <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#52525b', textTransform: 'uppercase', marginBottom: '0.3rem' }}>Notes (internal only)</div>
+                <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#64748b', textTransform: 'uppercase', marginBottom: '0.3rem' }}>Notes (internal only)</div>
                 <textarea
                   value={editState.notes ?? ''}
                   onChange={e => setEditState(prev => ({ ...prev, notes: e.target.value }))}
                   onBlur={e => autoSaveNotes(e.target.value)}
                   placeholder="e.g. Good for families, harder than usual..."
                   rows={2}
-                  style={{ width: '100%', background: '#0a0f0a', border: '1px solid #1a2e1a', borderRadius: 6, padding: '0.4rem 0.5rem', color: '#c8d8c8', fontFamily: 'Lexend, sans-serif', fontSize: '0.78rem', resize: 'vertical', outline: 'none', boxSizing: 'border-box' }}
+                  style={{ width: '100%', background: '#091e2a', border: '1px solid #1a4a5a', borderRadius: 6, padding: '0.4rem 0.5rem', color: '#c8d8c8', fontFamily: 'Poppins, sans-serif', fontSize: '0.78rem', resize: 'vertical', outline: 'none', boxSizing: 'border-box' }}
                 />
               </div>
             </div>
@@ -993,8 +993,8 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
           {/* ── ICEBREAKER ────────────────────────────────────────────────── */}
           {icebreakerPreview && (
             <div style={{ marginBottom: '1.25rem' }}>
-              <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#22d3c8', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Icebreaker</div>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', padding: '0.4rem 0', borderBottom: '1px solid #1a2e1a' }}>
+              <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#29afd4', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Icebreaker</div>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', padding: '0.4rem 0', borderBottom: '1px solid #1a4a5a' }}>
                 {icebreakerPreview.payload?.image_ref && (
                   <img
                     src={`/${icebreakerPreview.payload.image_ref}`}
@@ -1003,16 +1003,16 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
                   />
                 )}
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#22d3c8' }}>{icebreakerPreview.payload?.answer}</div>
-                  <div style={{ fontSize: '0.68rem', color: '#52525b', marginTop: '0.15rem' }}>{icebreakerPreview.prompt_id}</div>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#29afd4' }}>{icebreakerPreview.payload?.answer}</div>
+                  <div style={{ fontSize: '0.68rem', color: '#64748b', marginTop: '0.15rem' }}>{icebreakerPreview.prompt_id}</div>
                 </div>
                 <div style={{ display: 'flex', gap: '0.25rem', flexShrink: 0 }}>
-                  <button onClick={() => setIbSwapOpen(v => !v)} title="Swap icebreaker" style={{ ...ICON_BTN, borderColor: ibSwapOpen ? '#22d3c8' : '#1a2e1a', color: ibSwapOpen ? '#22d3c8' : '#9ab89a' }}>↔ Swap</button>
+                  <button onClick={() => setIbSwapOpen(v => !v)} title="Swap icebreaker" style={{ ...ICON_BTN, borderColor: ibSwapOpen ? '#29afd4' : '#1a4a5a', color: ibSwapOpen ? '#29afd4' : '#94a3b8' }}>↔ Swap</button>
                   <button onClick={handleRemoveReplaceIcebreaker} title="Auto-assign new icebreaker" style={ICON_BTN}>🔄 Auto-assign</button>
                 </div>
               </div>
               {ibSwapOpen && (
-                <div style={{ padding: '0.5rem 0', background: '#0a0f0a', borderBottom: '1px solid #1a2e1a' }}>
+                <div style={{ padding: '0.5rem 0', background: '#091e2a', borderBottom: '1px solid #1a4a5a' }}>
                   <div style={{ display: 'flex', gap: '0.4rem', marginBottom: '0.3rem' }}>
                     <input ref={ibSwapInputRef} type="text" value={ibSwapText} onChange={e => fetchIbSwapSearch(e.target.value)} placeholder="Search countries…" style={INPUT_STYLE} />
                     <button onClick={() => { setIbSwapOpen(false); setIbSwapText(''); setIbSwapResults([]) }} style={{ ...ICON_BTN, fontSize: '0.75rem' }}>✕</button>
@@ -1022,17 +1022,17 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
                       key={r.prompt_id}
                       onClick={() => handleSwapIcebreaker(r)}
                       style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.3rem 0.5rem', borderRadius: 5, cursor: 'pointer' }}
-                      onMouseEnter={e => (e.currentTarget.style.background = '#0a1f1f')}
+                      onMouseEnter={e => (e.currentTarget.style.background = '#0f3547')}
                       onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
                     >
                       {r.payload?.image_ref && (
                         <img src={`/${r.payload.image_ref}`} alt={r.payload?.answer ?? ''} style={{ width: 36, borderRadius: 4, flexShrink: 0 }} />
                       )}
-                      <span style={{ fontSize: '0.78rem', color: '#22d3c8' }}>{r.payload?.answer}</span>
+                      <span style={{ fontSize: '0.78rem', color: '#29afd4' }}>{r.payload?.answer}</span>
                     </div>
                   ))}
                   {ibSwapText && ibSwapResults.length === 0 && (
-                    <div style={{ fontSize: '0.7rem', color: '#52525b', padding: '0.25rem 0.5rem' }}>No results</div>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', padding: '0.25rem 0.5rem' }}>No results</div>
                   )}
                 </div>
               )}
@@ -1040,20 +1040,20 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
           )}
 
           {!selected && preview.length === 0 && (
-            <div style={{ color: '#52525b', fontSize: '0.85rem', marginBottom: '1.25rem' }}>No game scheduled for this day.</div>
+            <div style={{ color: '#64748b', fontSize: '0.85rem', marginBottom: '1.25rem' }}>No game scheduled for this day.</div>
           )}
 
           {/* Notes when no preview (existing days with notes loaded from DB) */}
           {selected && preview.length === 0 && (
             <div style={{ marginBottom: '1.25rem' }}>
-              <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#52525b', textTransform: 'uppercase', marginBottom: '0.3rem' }}>Notes (internal only)</div>
+              <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', color: '#64748b', textTransform: 'uppercase', marginBottom: '0.3rem' }}>Notes (internal only)</div>
               <textarea
                 value={editState.notes ?? ''}
                 onChange={e => setEditState(prev => ({ ...prev, notes: e.target.value }))}
                 onBlur={e => autoSaveNotes(e.target.value)}
                 placeholder="e.g. Good for families, harder than usual..."
                 rows={2}
-                style={{ width: '100%', background: '#0a0f0a', border: '1px solid #1a2e1a', borderRadius: 6, padding: '0.4rem 0.5rem', color: '#c8d8c8', fontFamily: 'Lexend, sans-serif', fontSize: '0.78rem', resize: 'vertical', outline: 'none', boxSizing: 'border-box' }}
+                style={{ width: '100%', background: '#091e2a', border: '1px solid #1a4a5a', borderRadius: 6, padding: '0.4rem 0.5rem', color: '#c8d8c8', fontFamily: 'Poppins, sans-serif', fontSize: '0.78rem', resize: 'vertical', outline: 'none', boxSizing: 'border-box' }}
               />
             </div>
           )}
@@ -1079,14 +1079,14 @@ export default function ScheduleTab({ supabase, showToast }: Props) {
             <button
               onClick={saveSchedule}
               disabled={saving}
-              style={{ background: '#22c55e', border: 'none', borderRadius: 8, padding: '0.55rem 1.5rem', color: '#000', cursor: saving ? 'not-allowed' : 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.85rem', fontWeight: 900, opacity: saving ? 0.6 : 1, marginTop: preview.length > 0 ? '0.75rem' : 0 }}
+              style={{ background: '#16a34a', border: 'none', borderRadius: 8, padding: '0.55rem 1.5rem', color: '#000', cursor: saving ? 'not-allowed' : 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.85rem', fontWeight: 900, opacity: saving ? 0.6 : 1, marginTop: preview.length > 0 ? '0.75rem' : 0 }}
             >
               {saving ? 'Saving…' : 'Confirm & Save'}
             </button>
           )}
         </div>
       ) : (
-        <div style={{ ...CARD, padding: '2rem', color: '#52525b', fontSize: '0.9rem' }}>Select a day from the calendar to edit.</div>
+        <div style={{ ...CARD, padding: '2rem', color: '#64748b', fontSize: '0.9rem' }}>Select a day from the calendar to edit.</div>
       )}
     </div>
   )
@@ -1139,10 +1139,10 @@ function ManualForm({ supabase, date, initial, onSave, showToast }: {
     onSave(row)
   }
 
-  const INPUT: React.CSSProperties = { background: '#152815', border: '1px solid #1a2e1a', borderRadius: 6, padding: '0.3rem 0.5rem', color: '#c8d8c8', fontFamily: 'Lexend, sans-serif', fontSize: '0.8rem', width: '100%' }
+  const INPUT: React.CSSProperties = { background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: 6, padding: '0.3rem 0.5rem', color: '#c8d8c8', fontFamily: 'Poppins, sans-serif', fontSize: '0.8rem', width: '100%' }
 
   return (
-    <div style={{ borderTop: '1px solid #1a2e1a', paddingTop: '1rem', marginBottom: '1rem' }}>
+    <div style={{ borderTop: '1px solid #1a4a5a', paddingTop: '1rem', marginBottom: '1rem' }}>
       <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.75rem' }}>
         <select value={cat} onChange={e => setCat(e.target.value)} style={{ ...INPUT, width: 'auto' }}>
           {CATEGORIES.map(c => <option key={c} value={c}>{CATEGORY_LABELS[c] ?? c}</option>)}
@@ -1154,30 +1154,30 @@ function ManualForm({ supabase, date, initial, onSave, showToast }: {
 
       <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}>
         <input placeholder="Search core prompts…" value={coreSearch} onChange={e => setCoreSearch(e.target.value)} style={INPUT} onKeyDown={e => e.key === 'Enter' && searchCore()} />
-        <button onClick={searchCore} style={{ background: '#1a2e1a', border: '1px solid #22c55e', borderRadius: 6, padding: '0.3rem 0.6rem', color: '#22c55e', cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.75rem' }}>Search</button>
+        <button onClick={searchCore} style={{ background: '#1a4a5a', border: '1px solid #29afd4', borderRadius: 6, padding: '0.3rem 0.6rem', color: '#29afd4', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.75rem' }}>Search</button>
       </div>
-      <div style={{ fontSize: '0.72rem', color: '#52525b', marginBottom: '0.35rem' }}>Selected: {selectedCore.length}/5</div>
+      <div style={{ fontSize: '0.72rem', color: '#64748b', marginBottom: '0.35rem' }}>Selected: {selectedCore.length}/5</div>
       {coreResults.map(p => (
         <div key={p.prompt_id} onClick={() => {
           const has = selectedCore.find(x => x.prompt_id === p.prompt_id)
           if (has) setSelectedCore(prev => prev.filter(x => x.prompt_id !== p.prompt_id))
           else if (selectedCore.length < 5) setSelectedCore(prev => [...prev, p])
         }} style={{ padding: '0.3rem 0.5rem', borderRadius: 6, cursor: 'pointer', background: selectedCore.find(x => x.prompt_id === p.prompt_id) ? '#14532d' : 'transparent', fontSize: '0.8rem', color: '#c8d8c8', marginBottom: 2 }}>
-          {p.payload?.text} <span style={{ color: '#52525b' }}>({p.prompt_id})</span>
+          {p.payload?.text} <span style={{ color: '#64748b' }}>({p.prompt_id})</span>
         </div>
       ))}
 
       <div style={{ display: 'flex', gap: '0.5rem', margin: '0.75rem 0 0.5rem' }}>
         <input placeholder="Search icebreaker…" value={ibSearch} onChange={e => setIbSearch(e.target.value)} style={INPUT} onKeyDown={e => e.key === 'Enter' && searchIb()} />
-        <button onClick={searchIb} style={{ background: '#1a2e1a', border: '1px solid #22c55e', borderRadius: 6, padding: '0.3rem 0.6rem', color: '#22c55e', cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.75rem' }}>Search</button>
+        <button onClick={searchIb} style={{ background: '#1a4a5a', border: '1px solid #29afd4', borderRadius: 6, padding: '0.3rem 0.6rem', color: '#29afd4', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.75rem' }}>Search</button>
       </div>
       {ibResults.map(p => (
-        <div key={p.prompt_id} onClick={() => setSelectedIb(prev => prev?.prompt_id === p.prompt_id ? null : p)} style={{ padding: '0.3rem 0.5rem', borderRadius: 6, cursor: 'pointer', background: selectedIb?.prompt_id === p.prompt_id ? '#14532d' : 'transparent', fontSize: '0.8rem', color: '#22d3c8', marginBottom: 2 }}>
+        <div key={p.prompt_id} onClick={() => setSelectedIb(prev => prev?.prompt_id === p.prompt_id ? null : p)} style={{ padding: '0.3rem 0.5rem', borderRadius: 6, cursor: 'pointer', background: selectedIb?.prompt_id === p.prompt_id ? '#14532d' : 'transparent', fontSize: '0.8rem', color: '#29afd4', marginBottom: 2 }}>
           {p.payload?.text}
         </div>
       ))}
 
-      <button onClick={save} disabled={saving} style={{ marginTop: '0.75rem', background: '#22c55e', border: 'none', borderRadius: 8, padding: '0.5rem 1.2rem', color: '#000', cursor: saving ? 'not-allowed' : 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.82rem', fontWeight: 900 }}>
+      <button onClick={save} disabled={saving} style={{ marginTop: '0.75rem', background: '#16a34a', border: 'none', borderRadius: 8, padding: '0.5rem 1.2rem', color: '#000', cursor: saving ? 'not-allowed' : 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.82rem', fontWeight: 900 }}>
         {saving ? 'Saving…' : 'Save Manual Schedule'}
       </button>
     </div>

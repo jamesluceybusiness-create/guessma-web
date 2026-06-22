@@ -203,10 +203,10 @@ export default function FinalResults({ gs, supabase, update }: Props) {
     '🧊 Neither got the icebreaker'
 
   const resultBadge = (dotState: string | null) => {
-    if (dotState === 'green') return { bg: 'rgba(34,197,94,0.15)', color: '#4ade80', label: '✓ Correct' }
-    if (dotState === 'red') return { bg: 'rgba(239,68,68,0.15)', color: '#f87171', label: '✗ Wrong' }
-    if (dotState === 'yellow') return { bg: 'rgba(234,179,8,0.15)', color: '#fde68a', label: '→ Skipped' }
-    return { bg: 'rgba(82,82,91,0.2)', color: '#52525b', label: '— Not shown' }
+    if (dotState === 'green') return { bg: 'rgba(34,197,94,0.15)', color: '#16a34a', label: '✓ Correct' }
+    if (dotState === 'red') return { bg: 'rgba(239,68,68,0.15)', color: '#ef4444', label: '✗ Wrong' }
+    if (dotState === 'yellow') return { bg: 'rgba(234,179,8,0.15)', color: '#facc15', label: '→ Skipped' }
+    return { bg: 'rgba(82,82,91,0.2)', color: '#64748b', label: '— Not shown' }
   }
 
   return (
@@ -215,18 +215,18 @@ export default function FinalResults({ gs, supabase, update }: Props) {
       <div style={{
         height: '100vh', overflowY: 'auto',
         display: 'flex', flexDirection: 'column', alignItems: 'center',
-        background: '#0a0f0a', color: 'white',
+        background: '#091e2a', color: 'white',
         padding: 'calc(64px + 2vh) 2vw 2vh',
       }}>
         <div style={{
-          background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: '16px',
+          background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '16px',
           padding: 'clamp(1.5rem, 3vh, 2.5rem)', maxWidth: 'min(680px, 92vw)', width: '100%',
           display: 'flex', flexDirection: 'column', gap: '1.5vh',
         }}>
 
           {/* SECTION 1 — Header */}
           <div>
-            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#22c55e', textTransform: 'uppercase', margin: '0 0 0.5rem' }}>
+            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#29afd4', textTransform: 'uppercase', margin: '0 0 0.5rem' }}>
               Daily Complete · {dateStr}
             </p>
             <p style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)', fontWeight: 900, color: 'white', margin: '0 0 0.75rem', lineHeight: 1.1 }}>
@@ -234,8 +234,8 @@ export default function FinalResults({ gs, supabase, update }: Props) {
             </p>
             <span style={{
               display: 'inline-block',
-              background: 'rgba(59,130,246,0.12)', border: '1px solid #3b82f6',
-              color: '#93c5fd', borderRadius: '999px',
+              background: 'rgba(41,175,212,0.12)', border: '1px solid #29afd4',
+              color: '#29afd4', borderRadius: '999px',
               padding: '0.35rem 0.9rem', fontSize: '0.85rem', fontWeight: 700,
             }}>
               {icebreakerBadgeText}
@@ -251,12 +251,12 @@ export default function FinalResults({ gs, supabase, update }: Props) {
               <div
                 key={name}
                 style={{
-                  flex: 1, background: '#13131a',
-                  border: '1px solid #27272a',
+                  flex: 1, background: '#0d2d3d',
+                  border: '1px solid #1a4a5a',
                   borderRadius: '12px', padding: '1rem',
                 }}
               >
-                <p style={{ fontSize: '0.7rem', color: '#52525b', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.25rem' }}>
+                <p style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.25rem' }}>
                   {name}
                 </p>
                 <p style={{ fontSize: '2rem', fontWeight: 900, color: 'white', margin: 0 }}>
@@ -268,7 +268,7 @@ export default function FinalResults({ gs, supabase, update }: Props) {
 
           {/* SECTION 3 — Prompt breakdown table */}
           <div>
-            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#22c55e', textTransform: 'uppercase', margin: '0 0 0.75rem' }}>
+            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#29afd4', textTransform: 'uppercase', margin: '0 0 0.75rem' }}>
               How You Did
             </p>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -281,7 +281,7 @@ export default function FinalResults({ gs, supabase, update }: Props) {
                     style={{
                       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                       padding: '0.6rem 0',
-                      borderBottom: '1px solid #1a2e1a',
+                      borderBottom: '1px solid #1a4a5a',
                       gap: '0.75rem',
                     }}
                   >
@@ -295,7 +295,7 @@ export default function FinalResults({ gs, supabase, update }: Props) {
                     }}>
                       {badge.label}
                     </span>
-                    <span style={{ fontSize: '0.82rem', color: '#52525b', flexShrink: 0, minWidth: '2.5rem', textAlign: 'right' }}>
+                    <span style={{ fontSize: '0.82rem', color: '#64748b', flexShrink: 0, minWidth: '2.5rem', textAlign: 'right' }}>
                       {timing ? `${(timing.timeMs / 1000).toFixed(1)}s` : '—'}
                     </span>
                   </div>
@@ -306,12 +306,12 @@ export default function FinalResults({ gs, supabase, update }: Props) {
               <div style={{ marginTop: '0.75rem' }}>
                 {gs.dotStates[5] === 'green' ? (
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}>
-                    <span style={{ flex: 1, color: '#fde68a', fontWeight: 700, fontSize: '0.95rem' }}>
+                    <span style={{ flex: 1, color: '#facc15', fontWeight: 700, fontSize: '0.95rem' }}>
                       ⭐ BONUS — {gs.corePrompts[5]?.payload?.text ?? ''}
                     </span>
                     <span style={{
                       padding: '0.2rem 0.6rem', borderRadius: '999px',
-                      background: 'rgba(234,179,8,0.15)', color: '#fde68a',
+                      background: 'rgba(234,179,8,0.15)', color: '#facc15',
                       fontSize: '0.78rem', fontWeight: 800, flexShrink: 0,
                     }}>
                       ✓ Unlocked!
@@ -320,15 +320,15 @@ export default function FinalResults({ gs, supabase, update }: Props) {
                 ) : (
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}>
-                      <span style={{ color: '#52525b', fontWeight: 700, fontSize: '0.95rem' }}>
+                      <span style={{ color: '#64748b', fontWeight: 700, fontSize: '0.95rem' }}>
                         ⭐ BONUS — Locked
                       </span>
-                      <span style={{ color: '#3f3f46', fontSize: '0.78rem', flexShrink: 0 }}>
+                      <span style={{ color: '#64748b', fontSize: '0.78rem', flexShrink: 0 }}>
                         Get all 5 correct to unlock
                       </span>
                     </div>
                     {gs.corePrompts[5] && (
-                      <p style={{ fontSize: '0.78rem', color: '#3f3f46', fontStyle: 'italic', margin: '0.35rem 0 0' }}>
+                      <p style={{ fontSize: '0.78rem', color: '#64748b', fontStyle: 'italic', margin: '0.35rem 0 0' }}>
                         The bonus was: {gs.corePrompts[5].payload.text}
                       </p>
                     )}
@@ -340,28 +340,28 @@ export default function FinalResults({ gs, supabase, update }: Props) {
 
           {/* SECTION 4 — Stats row */}
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-            <div style={{ flex: 1, minWidth: '80px', background: '#13131a', border: '1px solid #27272a', borderRadius: '10px', padding: '0.6rem 0.75rem', textAlign: 'center' }}>
-              <p style={{ fontSize: '0.6rem', color: '#52525b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.2rem' }}>Correct</p>
+            <div style={{ flex: 1, minWidth: '80px', background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '10px', padding: '0.6rem 0.75rem', textAlign: 'center' }}>
+              <p style={{ fontSize: '0.6rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.2rem' }}>Correct</p>
               <p style={{ fontSize: '1.2rem', fontWeight: 900, color: 'white', margin: 0 }}>{correctCount}/5</p>
             </div>
-            <div style={{ flex: 1, minWidth: '80px', background: '#13131a', border: '1px solid #27272a', borderRadius: '10px', padding: '0.6rem 0.75rem', textAlign: 'center' }}>
-              <p style={{ fontSize: '0.6rem', color: '#52525b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.2rem' }}>Icebreaker</p>
+            <div style={{ flex: 1, minWidth: '80px', background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '10px', padding: '0.6rem 0.75rem', textAlign: 'center' }}>
+              <p style={{ fontSize: '0.6rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.2rem' }}>Icebreaker</p>
               <p style={{ fontSize: '1.1rem', fontWeight: 900, color: 'white', margin: 0, lineHeight: 1.2 }}>{icebreakerWinnerName}</p>
             </div>
             {newStreak !== null && (
-              <div style={{ flex: 1, minWidth: '80px', background: '#13131a', border: '1px solid #27272a', borderRadius: '10px', padding: '0.6rem 0.75rem', textAlign: 'center' }}>
-                <p style={{ fontSize: '0.6rem', color: '#52525b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.2rem' }}>Streak</p>
+              <div style={{ flex: 1, minWidth: '80px', background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '10px', padding: '0.6rem 0.75rem', textAlign: 'center' }}>
+                <p style={{ fontSize: '0.6rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.2rem' }}>Streak</p>
                 <p style={{ fontSize: '1.2rem', fontWeight: 900, color: 'white', margin: 0 }}>{newStreak} 🔥</p>
               </div>
             )}
             <div style={{
               flex: 1, minWidth: '80px',
-              background: karmaEarned > 0 ? 'rgba(34,197,94,0.1)' : '#13131a',
-              border: karmaEarned > 0 ? '1px solid rgba(34,197,94,0.3)' : '1px solid #27272a',
+              background: karmaEarned > 0 ? 'rgba(34,197,94,0.1)' : '#0d2d3d',
+              border: karmaEarned > 0 ? '1px solid rgba(34,197,94,0.3)' : '1px solid #1a4a5a',
               borderRadius: '10px', padding: '0.6rem 0.75rem', textAlign: 'center',
             }}>
-              <p style={{ fontSize: '0.6rem', color: karmaEarned > 0 ? '#22c55e' : '#52525b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.2rem' }}>Karma</p>
-              <p style={{ fontSize: '1.2rem', fontWeight: 900, color: karmaEarned > 0 ? '#4ade80' : '#52525b', margin: 0 }}>+{karmaEarned} ⚡</p>
+              <p style={{ fontSize: '0.6rem', color: karmaEarned > 0 ? '#16a34a' : '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.2rem' }}>Karma</p>
+              <p style={{ fontSize: '1.2rem', fontWeight: 900, color: karmaEarned > 0 ? '#16a34a' : '#64748b', margin: 0 }}>+{karmaEarned} ⚡</p>
             </div>
           </div>
 
@@ -369,10 +369,10 @@ export default function FinalResults({ gs, supabase, update }: Props) {
           <button
             onClick={copyShare}
             style={{
-              width: '100%', padding: '1rem', background: copied ? '#166534' : '#1a2e1a',
-              color: copied ? '#4ade80' : '#22c55e', border: '1px solid #22c55e',
+              width: '100%', padding: '1rem', background: copied ? '#16a34a' : '#0f3547',
+              color: copied ? 'white' : '#16a34a', border: '1px solid #16a34a',
               borderRadius: '10px', fontWeight: 800, fontSize: '1rem',
-              cursor: 'pointer', fontFamily: 'Lexend, sans-serif',
+              cursor: 'pointer', fontFamily: 'Poppins, sans-serif',
               transition: 'background 0.2s',
             }}
           >
@@ -381,7 +381,7 @@ export default function FinalResults({ gs, supabase, update }: Props) {
 
           {/* SECTION 6 — Guest signup prompt */}
           {!gs.hostUser && (
-            <div style={{ background: '#13131a', border: '1px solid #27272a', borderRadius: '12px', padding: '1rem 1.25rem', textAlign: 'center' }}>
+            <div style={{ background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '12px', padding: '1rem 1.25rem', textAlign: 'center' }}>
               <p style={{ fontSize: '0.85rem', color: '#d4d4d8', margin: '0 0 0.75rem', lineHeight: 1.5 }}>
                 Create an account to track your streak and earn karma!
               </p>
@@ -399,7 +399,7 @@ export default function FinalResults({ gs, supabase, update }: Props) {
           )}
 
           {saving && (
-            <p style={{ textAlign: 'center', fontSize: '0.75rem', color: '#3f3f46' }}>
+            <p style={{ textAlign: 'center', fontSize: '0.75rem', color: '#64748b' }}>
               Saving results…
             </p>
           )}
@@ -408,7 +408,7 @@ export default function FinalResults({ gs, supabase, update }: Props) {
           <Link
             href="/"
             style={{
-              textAlign: 'center', fontSize: '0.8rem', color: '#4a7a4a',
+              textAlign: 'center', fontSize: '0.8rem', color: '#94a3b8',
               textDecoration: 'none', fontWeight: 600,
             }}
           >

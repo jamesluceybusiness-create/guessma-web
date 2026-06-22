@@ -82,14 +82,14 @@ export default function IcebreakerResults({ gs, update }: Props) {
   }
 
   const playerOptions: Array<{ role: FlipRole; label: string; bg: string }> = [
-    { role: 'host', label: hostName, bg: 'rgba(99,102,241,0.15)' },
+    { role: 'host', label: hostName, bg: 'rgba(41,175,212,0.15)' },
     { role: 'partner', label: partnerName, bg: 'rgba(239,68,68,0.15)' },
   ]
 
   const modalRoleName = flipModal?.role === 'host' ? hostName : partnerName
 
   return (
-    <div style={{ height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', background: '#0a0f0a', color: 'white' }}>
+    <div style={{ height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', background: '#091e2a', color: 'white' }}>
       <style>{`@keyframes coin-spin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }`}</style>
       <Nav />
 
@@ -100,13 +100,13 @@ export default function IcebreakerResults({ gs, update }: Props) {
           display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000,
         }}>
           <div style={{
-            background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: '16px',
+            background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '16px',
             padding: '2.5rem 2rem', textAlign: 'center', maxWidth: '320px', width: '90%',
             display: 'flex', flexDirection: 'column', gap: '1.25rem', alignItems: 'center',
           }}>
             {flipModal.phase === 'choose' && (
               <>
-                <p style={{ color: '#a0c4a0', fontWeight: 700, fontSize: '1rem', margin: 0 }}>
+                <p style={{ color: '#94a3b8', fontWeight: 700, fontSize: '1rem', margin: 0 }}>
                   {modalRoleName}
                 </p>
                 <p style={{ color: 'white', fontWeight: 900, fontSize: '1.4rem', margin: 0 }}>
@@ -118,9 +118,9 @@ export default function IcebreakerResults({ gs, update }: Props) {
                       key={side}
                       onClick={() => handleChoose(side)}
                       style={{
-                        flex: 1, padding: '0.75rem', background: '#3f3f46', color: 'white',
+                        flex: 1, padding: '0.75rem', background: '#1a4a5a', color: 'white',
                         border: 'none', borderRadius: '10px', fontWeight: 900, fontSize: '1rem',
-                        cursor: 'pointer', fontFamily: 'Lexend, sans-serif',
+                        cursor: 'pointer', fontFamily: 'Poppins, sans-serif',
                         textTransform: 'capitalize', letterSpacing: '0.04em',
                       }}
                     >
@@ -132,8 +132,8 @@ export default function IcebreakerResults({ gs, update }: Props) {
                   onClick={() => setFlipModal(null)}
                   style={{
                     width: '100%', padding: '0.45rem', background: 'transparent',
-                    border: '1px solid #1a2e1a', color: '#4a7a4a', borderRadius: '8px',
-                    cursor: 'pointer', fontFamily: 'Lexend, sans-serif', fontSize: '0.85rem',
+                    border: '1px solid #1a4a5a', color: '#94a3b8', borderRadius: '8px',
+                    cursor: 'pointer', fontFamily: 'Poppins, sans-serif', fontSize: '0.85rem',
                   }}
                 >
                   Cancel
@@ -143,7 +143,7 @@ export default function IcebreakerResults({ gs, update }: Props) {
 
             {flipModal.phase === 'spinning' && (
               <>
-                <p style={{ color: '#4a7a4a', fontWeight: 700, fontSize: '1.1rem', margin: 0 }}>Flipping…</p>
+                <p style={{ color: '#94a3b8', fontWeight: 700, fontSize: '1.1rem', margin: 0 }}>Flipping…</p>
                 <div style={{ fontSize: '4rem', lineHeight: 1, animation: 'coin-spin 0.3s linear infinite' }}>
                   🪙
                 </div>
@@ -155,7 +155,7 @@ export default function IcebreakerResults({ gs, update }: Props) {
                 <div style={{
                   width: '5rem', height: '5rem', borderRadius: '50%',
                   background: flipModal.won
-                    ? 'linear-gradient(135deg, #22c55e, #16a34a)'
+                    ? 'linear-gradient(135deg, #16a34a, #16a34a)'
                     : 'linear-gradient(135deg, #ef4444, #dc2626)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: '0.9rem', fontWeight: 900, color: '#fff', textAlign: 'center',
@@ -167,7 +167,7 @@ export default function IcebreakerResults({ gs, update }: Props) {
                     ? `${modalRoleName} won the flip!`
                     : `${modalRoleName} lost the flip — no points`}
                 </p>
-                <p style={{ color: '#4a7a4a', fontSize: '0.8rem', margin: 0 }}>Just a sec…</p>
+                <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: 0 }}>Just a sec…</p>
               </>
             )}
           </div>
@@ -180,18 +180,18 @@ export default function IcebreakerResults({ gs, update }: Props) {
         padding: '1vh 2vw', paddingTop: 'calc(64px + 1vh)',
       }}>
         <div style={{
-          background: '#0d1710', border: '1px solid #1a2e1a', borderRadius: '16px',
+          background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '16px',
           padding: 'clamp(1.5rem, 2.5vh, 2.5rem)', maxWidth: 'min(680px, 90vw)', width: '100%',
           maxHeight: 'calc(100vh - 64px - 4vh)', overflowY: 'auto',
           display: 'flex', flexDirection: 'column', gap: '1.5vh',
         }}>
-          <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#22c55e', textTransform: 'uppercase', margin: 0 }}>
+          <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#29afd4', textTransform: 'uppercase', margin: 0 }}>
             Icebreaker · Results
           </p>
 
           {/* Answer reveal */}
-          <div style={{ background: '#13131a', border: '1px solid #27272a', borderRadius: '12px', padding: '1.25rem 1.5rem', position: 'relative', textAlign: 'center' }}>
-            <p style={{ fontSize: '0.65rem', color: '#52525b', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, marginBottom: '0.5rem', marginTop: 0 }}>
+          <div style={{ background: '#0d2d3d', border: '1px solid #1a4a5a', borderRadius: '12px', padding: '1.25rem 1.5rem', position: 'relative', textAlign: 'center' }}>
+            <p style={{ fontSize: '0.65rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, marginBottom: '0.5rem', marginTop: 0 }}>
               The Correct Answer Is:
             </p>
             <p style={{ fontSize: 'clamp(1.8rem, 5vh, 3.2rem)', fontWeight: 900, color: 'white', textTransform: 'uppercase', margin: 0, lineHeight: 1.1 }}>
@@ -206,7 +206,7 @@ export default function IcebreakerResults({ gs, update }: Props) {
             </span>
           </div>
 
-          <p style={{ color: '#4a7a4a', fontSize: '0.9rem', textAlign: 'center', margin: 0, fontWeight: 600 }}>
+          <p style={{ color: '#94a3b8', fontSize: '0.9rem', textAlign: 'center', margin: 0, fontWeight: 600 }}>
             Who said it first?
           </p>
 
@@ -227,8 +227,8 @@ export default function IcebreakerResults({ gs, update }: Props) {
                     border: `2px solid ${selected === role ? '#facc15' : 'transparent'}`,
                     background: bg,
                     display: 'flex', alignItems: 'center', gap: '0.75rem',
-                    fontFamily: 'Lexend, sans-serif', fontWeight: 700, fontSize: '1.15rem',
-                    color: dimmed ? '#52525b' : 'white',
+                    fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '1.15rem',
+                    color: dimmed ? '#64748b' : 'white',
                     opacity: dimmed ? 0.45 : 1,
                     transition: 'opacity 0.2s',
                     minHeight: 'clamp(60px, 10vh, 90px)',
@@ -237,7 +237,7 @@ export default function IcebreakerResults({ gs, update }: Props) {
                   <span style={{ flex: 1 }}>{label}</span>
 
                   {flip?.used && flip.won && (
-                    <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#22c55e', background: 'rgba(34,197,94,0.15)', padding: '0.2rem 0.5rem', borderRadius: '6px', flexShrink: 0 }}>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#16a34a', background: 'rgba(34,197,94,0.15)', padding: '0.2rem 0.5rem', borderRadius: '6px', flexShrink: 0 }}>
                       ✓ Flip won
                     </span>
                   )}
@@ -253,8 +253,8 @@ export default function IcebreakerResults({ gs, update }: Props) {
                       style={{
                         padding: '0.2rem 0.6rem', borderRadius: '6px',
                         background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)',
-                        color: '#a1a1aa', fontWeight: 700, fontSize: '0.75rem',
-                        cursor: 'pointer', fontFamily: 'Lexend, sans-serif',
+                        color: '#94a3b8', fontWeight: 700, fontSize: '0.75rem',
+                        cursor: 'pointer', fontFamily: 'Poppins, sans-serif',
                         display: 'flex', alignItems: 'center', gap: '0.25rem',
                         flexShrink: 0,
                       }}
@@ -275,9 +275,9 @@ export default function IcebreakerResults({ gs, update }: Props) {
               style={{
                 padding: '0.85rem 1rem', borderRadius: '10px', textAlign: 'left',
                 cursor: 'pointer', border: `2px solid ${selected === 'none' ? '#facc15' : 'transparent'}`,
-                background: '#1c1c1f',
+                background: '#0d2d3d',
                 display: 'flex', alignItems: 'center', gap: '0.75rem',
-                fontFamily: 'Lexend, sans-serif', fontWeight: 700, fontSize: '1.05rem',
+                fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '1.05rem',
                 color: 'white',
               }}
             >
@@ -293,7 +293,7 @@ export default function IcebreakerResults({ gs, update }: Props) {
               width: '100%', height: 'clamp(2.8rem, 6vh, 3.5rem)', background: '#16a34a', color: 'white',
               border: 'none', borderRadius: '10px', fontWeight: 800, fontSize: 'clamp(0.9rem, 1.8vh, 1.1rem)',
               cursor: selected !== null ? 'pointer' : 'not-allowed',
-              opacity: selected !== null ? 1 : 0.35, fontFamily: 'Lexend, sans-serif',
+              opacity: selected !== null ? 1 : 0.35, fontFamily: 'Poppins, sans-serif',
             }}
           >
             Continue to Core Round →

@@ -14,7 +14,7 @@ export default function Duos() {
     <div>
       <span style={s.tag}>GAME MODE</span>
       <h1 style={s.h1}>Duos</h1>
-      <p style={{ fontFamily: 'Georgia, serif', fontSize: '0.95rem', color: '#9ab89a', fontStyle: 'italic', margin: '0.25rem 0 2rem' }}>
+      <p style={{ fontFamily: 'Georgia, serif', fontSize: '0.95rem', color: '#94a3b8', fontStyle: 'italic', margin: '0.25rem 0 2rem' }}>
         2 teams · 2 players per team · the base game
       </p>
 
@@ -41,7 +41,7 @@ export default function Duos() {
       <section style={s.sec}>
         <h2 style={s.h2}>Round Flow</h2>
         <p style={s.p}>Every tile pick triggers the following sequence:</p>
-        <ol style={{ fontFamily: 'Georgia, serif', fontSize: '1rem', lineHeight: 1.8, color: '#c8d8c8', paddingLeft: '1.5rem', margin: 0 }}>
+        <ol style={{ fontFamily: 'Georgia, serif', fontSize: '1rem', lineHeight: 1.8, color: '#94a3b8', paddingLeft: '1.5rem', margin: 0 }}>
           {ROUND_STEPS.map((step, i) => (
             <li key={i} style={{ marginBottom: '0.75rem' }}>{step}</li>
           ))}

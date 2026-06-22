@@ -8,17 +8,17 @@ type State = 'loading' | 'form' | 'success' | 'error'
 
 const PAGE: React.CSSProperties = {
   minHeight: '100vh',
-  background: '#0a0f0a',
+  background: '#091e2a',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontFamily: 'Lexend, sans-serif',
+  fontFamily: 'Poppins, sans-serif',
   padding: '2rem 1rem',
 }
 
 const CARD: React.CSSProperties = {
-  background: '#13131a',
-  border: '1px solid #1a2e1a',
+  background: '#0d2d3d',
+  border: '1px solid #1a4a5a',
   borderRadius: 16,
   padding: '2.5rem 2rem',
   width: '100%',
@@ -27,31 +27,31 @@ const CARD: React.CSSProperties = {
 
 const INPUT: React.CSSProperties = {
   width: '100%',
-  background: '#0a0f0a',
-  border: '1px solid rgba(255,255,255,0.1)',
+  background: '#091e2a',
+  border: '1px solid #1a4a5a',
   borderRadius: 8,
   padding: '0.75rem 1rem',
-  color: '#f0f0f0',
-  fontFamily: 'Lexend, sans-serif',
+  color: '#ffffff',
+  fontFamily: 'Poppins, sans-serif',
   fontSize: '1rem',
 }
 
 const ERROR_BOX: React.CSSProperties = {
-  background: 'rgba(224,85,85,0.12)',
-  border: '1px solid rgba(224,85,85,0.3)',
+  background: 'rgba(239,68,68,0.12)',
+  border: '1px solid rgba(239,68,68,0.4)',
   borderRadius: 8,
   padding: '0.75rem 1rem',
-  color: '#e05555',
+  color: '#ef4444',
   fontSize: '0.85rem',
 }
 
-const GREEN_BUTTON: React.CSSProperties = {
-  background: '#16a34a',
+const CTA_BUTTON: React.CSSProperties = {
+  background: '#29afd4',
   border: 'none',
   borderRadius: 8,
   padding: '0.75rem 1rem',
-  color: '#fff',
-  fontFamily: 'Lexend, sans-serif',
+  color: '#091e2a',
+  fontFamily: 'Poppins, sans-serif',
   fontSize: '1rem',
   fontWeight: 800,
   width: '100%',
@@ -121,13 +121,13 @@ export default function ResetPasswordPage() {
           style={{
             width: 40,
             height: 40,
-            border: '4px solid #1a2e1a',
-            borderTop: '4px solid #16a34a',
+            border: '4px solid #1a4a5a',
+            borderTop: '4px solid #29afd4',
             borderRadius: '50%',
             animation: 'spin 1s linear infinite',
           }}
         />
-        <p style={{ color: '#9ab89a', fontSize: '0.9rem', margin: 0 }}>Verifying reset link...</p>
+        <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: 0 }}>Verifying reset link...</p>
         <style>{`@keyframes spin { to { transform: rotate(360deg) } }`}</style>
       </div>
     )
@@ -141,10 +141,10 @@ export default function ResetPasswordPage() {
           <h1 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '0.75rem' }}>
             Password updated!
           </h1>
-          <p style={{ fontSize: '0.9rem', color: '#9ab89a', lineHeight: 1.5, marginBottom: '1.75rem' }}>
+          <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.5, marginBottom: '1.75rem' }}>
             Your password has been changed. You can now sign in with your new password.
           </p>
-          <Link href="/login" style={GREEN_BUTTON}>
+          <Link href="/login" style={CTA_BUTTON}>
             Go to Sign In
           </Link>
         </div>
@@ -159,10 +159,10 @@ export default function ResetPasswordPage() {
           <h1 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '0.75rem' }}>
             Link expired
           </h1>
-          <p style={{ fontSize: '0.9rem', color: '#9ab89a', lineHeight: 1.5, marginBottom: '1.75rem' }}>
+          <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.5, marginBottom: '1.75rem' }}>
             This password reset link is invalid or has expired. Reset links are only valid for 1 hour.
           </p>
-          <Link href="/login" style={GREEN_BUTTON}>
+          <Link href="/login" style={CTA_BUTTON}>
             Request New Link
           </Link>
         </div>
@@ -178,7 +178,7 @@ export default function ResetPasswordPage() {
           href="/"
           style={{
             display: 'inline-block',
-            color: '#9ab89a',
+            color: '#94a3b8',
             fontSize: '0.85rem',
             textDecoration: 'none',
             marginBottom: '1rem',
@@ -191,7 +191,7 @@ export default function ResetPasswordPage() {
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
             Set New Password
           </h1>
-          <p style={{ fontSize: '0.88rem', color: '#9ab89a', lineHeight: 1.5, marginBottom: '1.75rem' }}>
+          <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.5, marginBottom: '1.75rem' }}>
             Choose a strong password for your GUESSMA account.
           </p>
 
@@ -227,7 +227,7 @@ export default function ResetPasswordPage() {
               type="submit"
               disabled={submitting}
               style={{
-                ...GREEN_BUTTON,
+                ...CTA_BUTTON,
                 cursor: submitting ? 'not-allowed' : 'pointer',
                 opacity: submitting ? 0.7 : 1,
               }}
