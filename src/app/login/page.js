@@ -148,9 +148,12 @@ export default function LoginPage() {
         </p>
 
         <p style={{ marginTop: '0.6rem', textAlign: 'center' }}>
-          <span style={{ fontSize: '0.75rem', color: '#94a3b8', cursor: 'default' }}>
+          <Link
+            href="/reset-password"
+            style={{ fontSize: '0.75rem', color: '#64748b', textDecoration: 'none' }}
+          >
             Forgot password?
-          </span>
+          </Link>
         </p>
 
       </div>
