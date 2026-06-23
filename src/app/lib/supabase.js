@@ -10,5 +10,8 @@ export function createClient() {
     )
   }
 
-  return createBrowserClient(url, key)
+  const cleanUrl = url.trim().replace(/\/$/, '')
+  const cleanKey = key.trim()
+
+  return createBrowserClient(cleanUrl, cleanKey)
 }

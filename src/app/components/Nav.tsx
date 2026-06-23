@@ -91,16 +91,16 @@ export default function Nav() {
               <span style={{ fontWeight: 900, color: 'white', fontSize: '0.8rem', lineHeight: 1.1 }}>
                 {account.display_name}
               </span>
-              <span style={{ color: '#71717a', fontSize: '0.65rem' }}>
+              <span style={{ color: '#64748b', fontSize: '0.65rem' }}>
                 @{account.username}
               </span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.1rem', marginLeft: '0.5rem' }}>
               <span style={{ color: '#29afd4', fontWeight: 900, fontSize: '0.75rem' }}>
-                {account.karma_lifetime ?? 0} <span style={{ color: '#52525b', fontWeight: 400, fontSize: '0.6rem' }}>KARMA</span>
+                {account.karma_lifetime ?? 0} <span style={{ color: '#64748b', fontWeight: 400, fontSize: '0.6rem' }}>KARMA</span>
               </span>
               <span style={{ color: '#facc15', fontWeight: 700, fontSize: '0.7rem' }}>
-                🔥 {playerStats?.current_streak ?? 0} <span style={{ color: '#52525b', fontWeight: 400, fontSize: '0.6rem' }}>STREAK</span>
+                🔥 {playerStats?.current_streak ?? 0} <span style={{ color: '#64748b', fontWeight: 400, fontSize: '0.6rem' }}>STREAK</span>
               </span>
             </div>
           </div>
