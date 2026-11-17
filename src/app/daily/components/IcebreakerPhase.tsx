@@ -28,8 +28,6 @@ export default function IcebreakerPhase({ gs, update }: Props) {
     ? `/${gs.icebreakerPrompt.payload.image_ref}`
     : null
 
-  console.log('[IcebreakerPhase] imgSrc:', imgSrc)
-  console.log('[IcebreakerPhase] payload:', gs.icebreakerPrompt?.payload)
 
   function handleReveal() {
     setRevealed(true)

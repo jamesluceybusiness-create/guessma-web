@@ -80,8 +80,6 @@ export default function PromptsTab({ supabase, showToast }: Props) {
       // Debug: log total count and per-category breakdown
       const byCat: Record<string, number> = {}
       allPrompts.forEach((r: Prompt) => { byCat[r.category_id] = (byCat[r.category_id] ?? 0) + 1 })
-      console.log('[PromptsTab] fetchPrompts — total rows:', allPrompts.length, '| per-category:', byCat)
-      console.log('[PromptsTab] core_sports rows:', allPrompts.filter((r: Prompt) => r.category_id === 'core_sports').length)
 
       setPrompts(allPrompts)
     } catch (err) {
@@ -102,7 +100,6 @@ export default function PromptsTab({ supabase, showToast }: Props) {
     else if (statusFilter === 'flagged') list = list.filter(p => p.is_flagged)
     if (search.trim()) list = list.filter(p => p.payload?.text?.toLowerCase().includes(search.toLowerCase()))
     // Debug: log filter state whenever filters change
-    console.log('[PromptsTab] filter applied — catFilter:', catFilter, '| diffFilter:', diffFilter, '| statusFilter:', statusFilter, '| results:', list.length, '(of', prompts.length, 'loaded)')
     setFiltered(list)
     setPage(0)
     setChecked(new Set())

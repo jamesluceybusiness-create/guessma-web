@@ -74,8 +74,6 @@ export default function DailyPage() {
           : Promise.resolve({ data: null }),
       ])
 
-      console.log('[loadGame] icebreaker raw:', JSON.stringify((ibRes as any).data))
-      console.log('[loadGame] schedule row:', JSON.stringify(row))
 
       const sorted = (row.core_prompt_ids as string[])
         .map(id => coreRaw?.find((p: any) => p.prompt_id === id))
